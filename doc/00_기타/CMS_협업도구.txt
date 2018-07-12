@@ -1,0 +1,8 @@
+협업도구
+
+========================================================
+collaboration tool (협업도구)
+========================================================
+- Slack ( devluff > project_cms ) - 메신저
+- Trello ( devluff > project_cms ) - todo list
+- Google Drive (자료실)

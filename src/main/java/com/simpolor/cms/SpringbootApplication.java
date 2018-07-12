@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjectCmsApplication {
+public class SpringbootApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProjectCmsApplication.class, args);
+        SpringApplication.run(SpringbootApplication.class, args);
     }
 }

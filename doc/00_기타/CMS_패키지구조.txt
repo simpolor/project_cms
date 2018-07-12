@@ -1,0 +1,97 @@
+패키지 구조
+
+========================================================
+기본  Directory 구조
+========================================================
+java
+resource
+webapp 
+
+
+========================================================
+Packaging 예제
+========================================================
+java
+	org
+		simpolor
+			cms
+				Defines.class - Static Variable
+				SimpolorCmsApplication.class - SpringBoot Init
+				ServletInitializer.class - SpringBoot Init
+				
+				common
+					exception - 예외
+						NotFoundException.class
+					component - 공통모듈
+						pagination.class
+					util - 유틸
+						StringUtil.class
+						
+				module - 메뉴 단위 프로그램
+					board - 게시판 샘플
+						BoardController.class
+						service
+							BoardService.class
+							BoardServiceImpl.class
+						dao
+							BoardDao.class
+						model
+							Board.class
+					site	
+					main
+					...
+							
+				schedule - 스케쥴러
+					WithdrawSchedule.class
+					
+				property - 환경변수
+					CmsProperty.class
+					
+				intercept - 인터셉터
+					AuthIntercept.class
+			
+				config - 초기설정
+					InitConfig.class
+					
+				cache - 캐시 
+					menuCache.class
+
+--------------------------------------------------------
+					
+resource
+	mapper
+		board
+			boardMapper.xml
+	
+	message
+		message_ko.properties
+		message_en.properties
+		message.properties
+	
+	application.yml
+	logback-spring.xml
+				
+--------------------------------------------------------
+
+webapp
+	css
+	js
+	font
+	images
+	WEB-INF
+		views
+			layout
+				default-admin
+					footer.jsp
+					header.jsp
+					include.jsp
+					nav.jsp
+					template.jsp
+			include
+				pagination.jsp
+				menu.jsp
+			module
+				board
+					boardView.jsp
+					boardList.jsp
+					boardWrite.jsp
