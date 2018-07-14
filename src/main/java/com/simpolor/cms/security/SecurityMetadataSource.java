@@ -30,9 +30,6 @@ public class SecurityMetadataSource implements FilterInvocationSecurityMetadataS
 	 * URL 및 권한을 불러와 매핑정보를 저장하는 함수 
 	 */
 	public void init() {
-		
-		logger.info("[M] SecurityMetadataSource.init");
-		
 		resourceMap = secureObjectAdapter.getRolesAndUrl();
     }
 	
@@ -40,9 +37,6 @@ public class SecurityMetadataSource implements FilterInvocationSecurityMetadataS
 	 * 권한이 수정될 경우 사용하기 위한 함수
 	 */
 	public void reload() {
-		
-		logger.info("[M] SecurityMetadataSource.reload");
-		
 		resourceMap.clear();
 		init();
 	}
@@ -52,9 +46,7 @@ public class SecurityMetadataSource implements FilterInvocationSecurityMetadataS
 	 */
 	@Override
 	public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
-		
-		logger.info("[M] SecurityMetadataSource.getAttributes");
-		
+
 		// resourceMap :  {Ant [pattern='/admin/home']=[ADMIN], Ant [pattern .. }
 		if(resourceMap == null) {
 			init();
@@ -66,17 +58,10 @@ public class SecurityMetadataSource implements FilterInvocationSecurityMetadataS
 		HttpServletRequest request = ((FilterInvocation)object).getRequest();
 		String httpUrl = request.getRequestURI();
 		String httpMethod = request.getMethod().toUpperCase();
-	
-		logger.info("-- request.getRequestURI : {}", request.getRequestURI());
-		logger.info("-- request.getRequestURI() : {}", httpUrl);
-		logger.info("-- request.getMethod : {}", httpMethod);
 
 		for(Entry<RequestMatcher, List<ConfigAttribute>> entry : resourceMap.entrySet() ){
 			// entry.getKey() : Ant [pattern='/admin/home']
-			logger.info("-- entry.getKey() : "+entry.getKey());
-			logger.info("-- entry.getKey().matches(request) : "+entry.getKey().matches(request));
 			if(entry.getKey().matches(request)){
-				logger.info("-- entry.getValue() : "+entry.getValue());
 				return entry.getValue();
 			}
 		}
@@ -105,9 +90,6 @@ public class SecurityMetadataSource implements FilterInvocationSecurityMetadataS
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		
-		logger.info("[M] SecurityMetadataSource.supports");
-		
 		return FilterInvocation.class.isAssignableFrom(clazz);
 	}
 

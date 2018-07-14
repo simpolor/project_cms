@@ -24,16 +24,9 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
 		
-		logger.info("[R] LoginFailureHandler.onAuthenticationFailure");
-		 
 		String memberId = request.getParameter("member_id");
 		String memberPw = request.getParameter("member_pw");
 		String failUrl = "/member/login?error=true";
-		
-		logger.info("memberId : {}", memberId);
-		logger.info("memberPw : {}", memberPw);
-		logger.info("failUrl : {}", failUrl);
-		logger.info("exception : {}", exception.getMessage());
 		
 		// 에러에 따른 처리
 		/*

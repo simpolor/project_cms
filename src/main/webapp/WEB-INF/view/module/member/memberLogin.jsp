@@ -34,11 +34,6 @@
 				<td><label for="member_id">비밀번호</label></td>
 				<td><input type="password" name="member_pw" id="member_pw" placeholder="비밀번호" required /></td>
 			</tr>
-			<tr>
-				<td colspan="2">	
-					<input type="checkbox" name="remember-me" id="remember-me" /><label for="remember-me">Remember-me</label>
-				</td>
-			</tr>
 		</table>
 	</form> 
 	

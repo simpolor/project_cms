@@ -26,10 +26,8 @@ public class LogicalOrAccessDecisionManager implements AccessDecisionManager {
 	@Override
 	public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes)
 			throws AccessDeniedException, InsufficientAuthenticationException {
-		
-		logger.info("[M] LogicalOrAccessDecisionManager.decide");
-		logger.info("-- configAttributes : {}", configAttributes);
-		// 해당 URL에 대한 권한 정보가 없다면 무조건 통과 
+
+		// 해당 URL에 대한 권한 정보가 없다면 무조건 통과
 		if (configAttributes == null || configAttributes.size() <= 0) {
             return;
         }
@@ -43,8 +41,6 @@ public class LogicalOrAccessDecisionManager implements AccessDecisionManager {
 			
 			String accessRoles = ((SecurityConfig) ca).getAttribute(); // URL에 대한 권한을 가져옴
 			for (GrantedAuthority ga : authentication.getAuthorities()) { // 사용자가 가지고 있는 권한을 반복문 실행
-				logger.info("-- accessRoles : {}", accessRoles);
-				logger.info("-- ga.getAuthority() : {}", ga.getAuthority());
 				if (accessRoles.contains(ga.getAuthority())) { // 사용자 권한과 매핑정보를 비교
 					return;
 				}
@@ -55,17 +51,11 @@ public class LogicalOrAccessDecisionManager implements AccessDecisionManager {
 
 	@Override
 	public boolean supports(ConfigAttribute attribute) {
-
-		logger.info("[M] LogicalOrAccessDecisionManager.supports ConfigAttribute");
-
 		return true;
 	}
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-
-		logger.info("[M] LogicalOrAccessDecisionManager.supports clazz");
-		
 		return true;
 	}
 

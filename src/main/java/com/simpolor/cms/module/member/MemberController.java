@@ -1,7 +1,7 @@
 package com.simpolor.cms.module.member;
 
 import com.simpolor.cms.util.StringUtil;
-import com.simpolor.cms.module.member.domain.Member;
+import com.simpolor.cms.module.member.model.Member;
 import com.simpolor.cms.module.member.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

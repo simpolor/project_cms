@@ -1,6 +1,6 @@
 package com.simpolor.cms.security.adapter;
 
-import com.simpolor.cms.module.access.domain.Access;
+import com.simpolor.cms.module.access.model.Access;
 import com.simpolor.cms.module.access.service.AccessService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +26,6 @@ public class SecureObjectAdapter {
 	
 	public LinkedHashMap<RequestMatcher, List<ConfigAttribute>> getRolesAndUrl(){
 
-		logger.info("[M] SecureObjectAdapter.getRolesAndUrl");
-		
 		LinkedHashMap<RequestMatcher, List<ConfigAttribute>> resourceMap = new LinkedHashMap<RequestMatcher, List<ConfigAttribute>>();
 		
 		// URL 및 권한 정보를 DB에서 호출

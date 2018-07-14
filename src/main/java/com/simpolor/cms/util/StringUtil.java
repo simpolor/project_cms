@@ -16,17 +16,16 @@ public class StringUtil {
 	 * 입력된 Object형의 값을 int형으로 반환
 	 * 올바르지 않을 경우 대체할 값으로 반환
 	 * @param obj
-	 * @param defaultValue : 대체할 값 
+	 * @param replaceValue : 대체할 값
 	 * @return int
 	 */
-	public static int getInt(Object obj, int replaceNum){
-		int num = replaceNum;
+	public static int getInt(Object obj, int replaceValue){
 		if(obj != null){
 			try{ 
-				num = Integer.parseInt(obj.toString()); 
+				return Integer.parseInt(obj.toString());
 			}catch(Exception e){ }
 		}
-		return num;
+		return replaceValue;
 	}
 	
 	/***
@@ -43,17 +42,16 @@ public class StringUtil {
 	 * 입력된 Object형의 값을 long형으로 반환
 	 * 올바르지 않을 경우 대체할 값으로 반환
 	 * @param obj
-	 * @param defaultValue : 대체할 값
+	 * @param replaceValue : 대체할 값
 	 * @return long
 	 */
-	public static long getLong(Object obj, long replaceNum){
-		long num = replaceNum;
+	public static long getLong(Object obj, long replaceValue){
 		if(obj != null){
 			try{
-				num = Long.parseLong(obj.toString());
+				return Long.parseLong(obj.toString());
 			}catch (Exception e) { }
 		}
-		return num;
+		return replaceValue;
 	}
 	
 	/***
@@ -70,17 +68,16 @@ public class StringUtil {
 	 * 입력된 Object형의 값을 float형으로 반환
 	 * 올바르지 않을 경우 대체할 값으로 반환
 	 * @param obj
-	 * @param defaultValue : 대체할 값 
+	 * @param replaceValue : 대체할 값
 	 * @return long
 	 */
-	public static float getFloat(Object obj, float replaceNum){
-		float num = replaceNum;
+	public static float getFloat(Object obj, float replaceValue){
 		if(obj != null){
 			try{
-				num = Float.parseFloat(obj.toString());
+				return Float.parseFloat(obj.toString());
 			}catch(Exception e){ }
 		}
-		return num;
+		return replaceValue;
 	}
 	
 	/***
@@ -97,17 +94,16 @@ public class StringUtil {
 	 * 입력된 Object형의 값을 float형으로 반환
 	 * 올바르지 않을 경우 대체할 값으로 반환
 	 * @param obj
-	 * @param defaultValue : 대체할 값 
+	 * @param replaceValue : 대체할 값
 	 * @return long
 	 */
-	public static double getDouble(Object obj, double replaceNum){
-		double num = replaceNum;
+	public static double getDouble(Object obj, double replaceValue){
 		if(obj != null){
 			try{
-				num = Double.parseDouble(obj.toString());
+				return Double.parseDouble(obj.toString());
 			}catch(Exception e){ }
 		}
-		return num;
+		return replaceValue;
 	}
 	
 	/***
@@ -124,16 +120,16 @@ public class StringUtil {
 	 * 입력된 Object형의 값을 String형의 문자로 반환
 	 * 올바르지 않을 경우 대체 문자로 반환
 	 * @param obj
-	 * @param defaultValue : 대체할 문자
+	 * @param replaceValue : 대체할 문자
 	 * @return String
 	 */
-	public static String getString(Object obj, String replaceStr){
+	public static String getString(Object obj, String replaceValue){
 		if(obj != null){
 			try{
 				return obj.toString();
 			}catch(Exception e){ }
 		}
-		return  replaceStr;
+		return replaceValue;
 	}
 	
 	/***

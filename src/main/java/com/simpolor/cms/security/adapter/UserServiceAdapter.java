@@ -1,9 +1,9 @@
 package com.simpolor.cms.security.adapter;
 
 import com.simpolor.cms.util.StringUtil;
-import com.simpolor.cms.module.member.domain.Member;
+import com.simpolor.cms.module.member.model.Member;
 import com.simpolor.cms.module.member.service.MemberService;
-import com.simpolor.cms.security.domain.User;
+import com.simpolor.cms.security.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +24,7 @@ final Logger logger = LoggerFactory.getLogger(UserServiceAdapter.class);
 	private MemberService memberService;
 
 	public User getUser(String username) {
-		
-		logger.info("[M] UserServiceAdapter.getUser");
-		logger.info("-- username : {}", username);
-		
+
 		Member member = memberService.getMember(username);
 		if(member != null) {
 			// Spring security의 User의 값 형태

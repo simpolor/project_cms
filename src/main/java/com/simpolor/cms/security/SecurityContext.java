@@ -1,6 +1,6 @@
 package com.simpolor.cms.security;
 
-import com.simpolor.cms.security.domain.User;
+import com.simpolor.cms.security.model.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -12,7 +12,6 @@ public final class SecurityContext {
         if(authentication != null && authentication.isAuthenticated()){
             // ignoring에 포함되지 않는 경우 무조건 인증을 통과하며,
             // "anonymousUser" 이름을 가진 권한을 가진다.
-            System.out.println("isAnonymousUser(authentication.getName() : "+isAnonymousUser(authentication.getName()));
             if (!isAnonymousUser(authentication.getName())){
                 return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             }

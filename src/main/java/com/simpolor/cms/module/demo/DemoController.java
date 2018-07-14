@@ -1,9 +1,9 @@
 package com.simpolor.cms.module.demo;
 
-import com.simpolor.cms.module.demo.domain.Demo;
+import com.simpolor.cms.module.demo.model.Demo;
 import com.simpolor.cms.module.demo.service.DemoService;
 import com.simpolor.cms.security.SecurityContext;
-import com.simpolor.cms.security.domain.User;
+import com.simpolor.cms.security.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,7 @@
 package com.simpolor.cms.module.role.service;
 
-import com.simpolor.cms.module.role.domain.Role;
-import com.simpolor.cms.module.role.repository.RoleRepository;
+import com.simpolor.cms.module.role.model.Role;
+import com.simpolor.cms.module.role.dao.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,6 @@
 package com.simpolor.cms.config;
 
 import com.simpolor.cms.security.*;
-import com.simpolor.cms.security.remember.RememberMeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -34,9 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired // 시큐리티 작업에 대한 인터셉터
 	private SecurityInterceptor securityInterceptor;
 	
-	@Autowired
-	private RememberMeRepository rememberMeRepository;
-	
 	/**
 	 * 스프링 시큐리티의 필터 연결을 설정
 	 */
@@ -63,15 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.successHandler(loginSuccessHandler) // 로그인 성공시 이동할 핸들러
 				.failureHandler(loginFailureHandler) // 로그인 성공시 이동할 핸들러
 		
-			// 비밀번호 자동저장 설정
-			.and()
-			.rememberMe()
-                .key("remember-me")
-                .rememberMeParameter("remember-me")
-                //.rememberMeCookieName("remember-me")
-                .tokenRepository(rememberMeRepository)
-                .tokenValiditySeconds(86400) // 1일 = 86400초
-		
 			// 로그아웃 설정
             .and()
             .logout()
@@ -88,7 +75,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.addFilterBefore(securityInterceptor, FilterSecurityInterceptor.class);
 	}
-	
 	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(usernamePasswordProvider);

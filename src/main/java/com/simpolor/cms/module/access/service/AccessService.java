@@ -1,7 +1,7 @@
 package com.simpolor.cms.module.access.service;
 
-import com.simpolor.cms.module.access.domain.Access;
-import com.simpolor.cms.module.access.repository.AccessRepository;
+import com.simpolor.cms.module.access.model.Access;
+import com.simpolor.cms.module.access.dao.AccessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class AccessService {
 
 	@Autowired
-    AccessRepository accessRepository;
+    private AccessRepository accessRepository;
 
 	public List<Access> getAccessList() {
 		return accessRepository.selectAccessList();

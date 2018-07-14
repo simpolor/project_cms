@@ -1,7 +1,7 @@
 package com.simpolor.cms.module.member.service;
 
-import com.simpolor.cms.module.member.domain.Member;
-import com.simpolor.cms.module.member.repository.MemberRepository;
+import com.simpolor.cms.module.member.model.Member;
+import com.simpolor.cms.module.member.dao.MemberRepository;
 import com.simpolor.cms.security.PasswordEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

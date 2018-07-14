@@ -1,16 +1,11 @@
 package com.simpolor.cms.config;
 
-import com.simpolor.cms.module.access.domain.Access;
-import com.simpolor.cms.module.demo.domain.Demo;
-import com.simpolor.cms.module.member.domain.Member;
-import com.simpolor.cms.module.role.domain.Role;
-import com.simpolor.cms.security.domain.Token;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -35,16 +30,16 @@ public class DatabaseConfig {
     public  SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        /* PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sessionFactory.setTypeAliases(new Class[] {
         		Demo.class,
         		Member.class,
         		Role.class,
-        		Access.class,
-        		Token.class
-        });
-        sessionFactory.setMapperLocations(resolver.getResources("classpath:/mapper/*/*.xml"));
-        //sessionFactory.setConfigLocation(new ClassPathResource("mybatis/mybatis-config.xml"));
+        		Access.class
+        }); */
+        // sessionFactory.setMapperLocations(resolver.getResources("classpath:/mapper/*/*.xml"));
+        sessionFactory.setConfigLocation(new ClassPathResource("mybatis/mybatis-config.xml"));
+
         return sessionFactory.getObject();
     }
 

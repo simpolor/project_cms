@@ -27,9 +27,7 @@ public class DelegatingAccessDeniedHandler implements AccessDeniedHandler {
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response,
 			AccessDeniedException accessDeniedException) throws IOException, ServletException {
-		
-		logger.info("[M] DelegatingAccessDeniedHandler.handle");
-		
+
 		// 현재 페이지가 정상 응답되는 페이지임을 지정하는 의미
     	response.setStatus(HttpServletResponse.SC_OK);
     	
@@ -42,10 +40,7 @@ public class DelegatingAccessDeniedHandler implements AccessDeniedHandler {
 		
 		// 권한에 따른 접근권한 처리
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		logger.info("-- authentication.isAuthenticated() : "+authentication.isAuthenticated());
-		logger.info("-- authentication.getName() : {}", authentication.getName());
     	for (GrantedAuthority auth : authentication.getAuthorities()) {
-    		logger.info("-- auth.getAuthority() : {}", auth.getAuthority());
     		//if (auth.getAuthority().equalsIgnoreCase("USER")) {
 	        	// 권한에 따라 로그인 이후 이동할 페이지를 지정할 수 있음
 	        //}

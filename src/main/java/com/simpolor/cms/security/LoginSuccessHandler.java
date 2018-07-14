@@ -35,12 +35,9 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
     	
-		logger.info("[M] LoginSuccessHandler.onAuthenticationSuccess");
-		
     	// 현재 로그인한 유저의 권한을 확인할 수 있는 부분
     	response.setStatus(HttpServletResponse.SC_OK);
     	for (GrantedAuthority auth : authentication.getAuthorities()) {
-            logger.info("-- auth.getAuthority() : {}", auth.getAuthority());
             /*if (auth.getAuthority().equalsIgnoreCase("USER")) {
             	// 권한에 따라 로그인 이후 이동할 페이지를 지정할 수 있음
             }*/
@@ -58,12 +55,9 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
      */
     public void redirectUrl(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
-    	logger.info("[M] LoginSuccessHandler.redirectUrl");
-
 		// 로그인 form에서 security_target_url 파라미터를 통한 페이지 호출
 		String targetUrl = request.getParameter(SECURITY_TARGET_URL);
     	if(targetUrl != null && !"".equals(targetUrl)) {
-    		logger.info("-- targetUrl : {}", targetUrl);
     		redirectStrategy.sendRedirect(request, response, targetUrl);
     		return;
     	}
@@ -73,7 +67,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     	if(savedRequest != null) {
     		String redirectUrl = savedRequest.getRedirectUrl();
     		if(redirectUrl != null && !redirectUrl.equals("")) {
-    			logger.info("-- redirectUrl : {}", redirectUrl);
     			redirectStrategy.sendRedirect(request, response, redirectUrl);
         		return;
     		}
@@ -82,7 +75,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     	// 로그인 컨트롤에서 header의 REFERER 값을 통한 페이지 호출
     	String refererUrl = (String) request.getSession().getAttribute("refererUrl");
     	if(refererUrl != null && !refererUrl.equals("")) {
-    		logger.info("-- refererUrl : {}", refererUrl);
     		redirectStrategy.sendRedirect(request, response, refererUrl);
     		return;
     	}
@@ -90,7 +82,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     	// 아무것도 존재하지 않을 경우 기본 페이지 호출
     	String defaultUrl = "/";
     	if(defaultUrl != null && !defaultUrl.equals("")) {
-    		logger.info("-- defaultUrl : {}", defaultUrl);
     		redirectStrategy.sendRedirect(request, response, defaultUrl);
     		return;
     	}

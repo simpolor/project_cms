@@ -1,6 +1,6 @@
 package com.simpolor.cms.module.role;
 
-import com.simpolor.cms.module.role.domain.Role;
+import com.simpolor.cms.module.role.model.Role;
 import com.simpolor.cms.module.role.service.RoleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

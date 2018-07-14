@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.simpolor.cms.property.SecurityProperty;
 import com.simpolor.cms.security.SecurityContext;
-import com.simpolor.cms.security.domain.User;
+import com.simpolor.cms.security.model.User;
 
 @Controller
 public class MainController {

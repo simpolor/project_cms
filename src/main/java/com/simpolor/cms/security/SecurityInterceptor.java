@@ -13,8 +13,6 @@ public class SecurityInterceptor extends FilterSecurityInterceptor {
 	public SecurityInterceptor(LogicalOrAccessDecisionManager accessDecisionManager,
 			SecurityMetadataSource securityMetadataSource) {
 		
-		logger.info("[C] SecurityInterceptor.constructor");
-		
 		super.setAccessDecisionManager(accessDecisionManager);
 		super.setSecurityMetadataSource(securityMetadataSource);
 	}

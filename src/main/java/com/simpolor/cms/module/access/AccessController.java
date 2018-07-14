@@ -1,8 +1,8 @@
 package com.simpolor.cms.module.access;
 
-import com.simpolor.cms.module.access.domain.Access;
+import com.simpolor.cms.module.access.model.Access;
 import com.simpolor.cms.module.access.service.AccessService;
-import com.simpolor.cms.module.role.domain.Role;
+import com.simpolor.cms.module.role.model.Role;
 import com.simpolor.cms.module.role.service.RoleService;
 import com.simpolor.cms.security.SecurityMetadataSource;
 import org.slf4j.Logger;
