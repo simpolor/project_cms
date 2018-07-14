@@ -1,0 +1,6 @@
+cms:
+
+
+---
+security:
+  isOtherPermitAll: true
