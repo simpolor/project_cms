@@ -8,8 +8,24 @@
 <tiles:insertDefinition name="default-layout">
 	<tiles:putAttribute name="default-body">
 
-		<style>
+		<script src="/script/default.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+            $(function(){
+               alert('test');
+            });
 
+            function alert2() {
+				alert('test2');
+            }
+
+            function alert3() {
+				f_alert();
+            }
+		</script>
+
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+		<style>
 			@import url('//fonts.googleapis.com/earlyaccess/nanumgothic.css');
 			.nanumgothic * {
 				font-family: 'Nanum Gothic', sans-serif;
@@ -43,9 +59,9 @@
 				font-family: "Nanum Gothic";
 			}
 
-			/*h3 {
+			h3 {
 				font-family: "Godo";
-			}*/
+			}
 
 		</style>
 
@@ -70,6 +86,24 @@
 			</table>
 		</c:if>
 
+		<button onclick="alert2();">alert2</button>
+		<button onclick="alert3();">alert3</button>
+
 		<img src="/image/sample.jpg" alt="sample" />
+
+		<form class="pure-form">
+			<fieldset>
+				<legend>A compact inline form</legend>
+
+				<input type="email" placeholder="Email">
+				<input type="password" placeholder="Password">
+
+				<label for="remember">
+					<input id="remember" type="checkbox"> Remember me
+				</label>
+
+				<button type="submit" class="pure-button pure-button-primary">Sign in</button>
+			</fieldset>
+		</form>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
