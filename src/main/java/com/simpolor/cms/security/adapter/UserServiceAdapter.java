@@ -34,12 +34,6 @@ final Logger logger = LoggerFactory.getLogger(UserServiceAdapter.class);
 			String memberEmail = member.getMember_email();
 			String memberRoles = member.getMember_roles();
 
-			logger.info("-- memberId : "+memberId);
-			logger.info("-- memberPw : "+memberPw);
-			logger.info("-- memberName : "+memberName);
-			logger.info("-- memberEmail : "+memberEmail);
-			logger.info("-- memberRoles : "+memberRoles);
-
 			List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
 			if(memberRoles != null && !StringUtil.isEmpty(memberRoles)){
 				String[] memberRoleSplit = memberRoles.split(",");

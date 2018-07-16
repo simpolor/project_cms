@@ -5,7 +5,9 @@ import com.simpolor.cms.module.demo.service.DemoService;
 import com.simpolor.cms.security.SecurityContext;
 import com.simpolor.cms.security.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +31,16 @@ public class DemoController {
 			System.out.println("age : "+demo.getAge());
 			System.out.println("hobby : "+demo.getHobby());
 		}
-		
+
+		if(SecurityContext.isAuthenticated()){
+			User user = SecurityContext.getPrincipal();
+			System.out.println("user.getIdentity() : "+user.getIdentity());
+			System.out.println("user.getPassword() : "+user.getPassword());
+			System.out.println("user.getName() : "+user.getName());
+			System.out.println("user.getEmail() : "+user.getEmail());
+			System.out.println("user.getAuthorities() : "+user.getAuthorities());
+		}
+
 		mav.addObject("demo", demo);
 		mav.setViewName("module/demo/demo");
 		
@@ -46,6 +57,15 @@ public class DemoController {
 			System.out.println("age : "+demo.getAge());
 			System.out.println("hobby : "+demo.getHobby());
 			mav.addObject("demo", demo);
+		}
+
+		if(SecurityContext.isAuthenticated()){
+			User user = SecurityContext.getPrincipal();
+			System.out.println("user.getIdentity() : "+user.getIdentity());
+			System.out.println("user.getPassword() : "+user.getPassword());
+			System.out.println("user.getName() : "+user.getName());
+			System.out.println("user.getEmail() : "+user.getEmail());
+			System.out.println("user.getAuthorities() : "+user.getAuthorities());
 		}
 		
 		mav.setViewName("module/demo/demo");
