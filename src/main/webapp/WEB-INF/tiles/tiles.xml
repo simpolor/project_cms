@@ -5,6 +5,7 @@
     <!-- Templates -->
     <definition name="default-layout" template="/WEB-INF/tiles/layout/default/default-template.jsp">
         <put-attribute name="default-header" value="/WEB-INF/tiles/layout/default/default-header.jsp"/>
+        <put-attribute name="default-nav" value="/WEB-INF/tiles/layout/default/default-nav.jsp"/>
         <put-attribute name="default-body" value="" />
         <put-attribute name="default-footer" value="/WEB-INF/tiles/layout/default/default-footer.jsp"/>
     </definition>

@@ -31,6 +31,8 @@
             <div id="main">
                 <tiles:insertAttribute name="default-header" />
 
+                <tiles:insertAttribute name="default-nav" />
+
                 <tiles:insertAttribute name="default-body" />
             </div>
         </div><!-- wrap end -->
