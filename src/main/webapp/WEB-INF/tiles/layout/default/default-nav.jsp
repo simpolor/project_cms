@@ -6,13 +6,14 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"  %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-
-                <div id="nav">
-                    <div class="nav-menus">
-                        <a href="${pageContext.request.contextPath}/admin/bookmark/list">즐겨찾기</a>
-                        <a href="${pageContext.request.contextPath}/admin/notice/list">공지사항</a>
-                        <a href="${pageContext.request.contextPath}/admin/board/list">자유게시판</a>
-                        <a href="${pageContext.request.contextPath}/admin/ask/list">문의사항</a>
-                        <a href="${pageContext.request.contextPath}/admin/member/list">회원</a>
-                    </div>
-                </div><!-- #nav -->
+                <div id="nav-wrap">
+                    <div id="nav">
+                        <div class="nav-menus">
+                            <a href="${pageContext.request.contextPath}/admin/bookmark/list">즐겨찾기</a>
+                            <a href="${pageContext.request.contextPath}/admin/notice/list">공지사항</a>
+                            <a href="${pageContext.request.contextPath}/admin/board/list">자유게시판</a>
+                            <a href="${pageContext.request.contextPath}/admin/ask/list">문의사항</a>
+                            <a href="${pageContext.request.contextPath}/admin/member/list">회원</a>
+                        </div>
+                    </div><!-- #nav -->
+                </div><!-- #nav-wrap -->

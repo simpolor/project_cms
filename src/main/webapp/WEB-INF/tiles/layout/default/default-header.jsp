@@ -6,22 +6,31 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"  %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-                <div id="header">
-                    <div class="header-logo">
-                        <a href="${pageContext.request.contextPath}/admin/bookmark/list">BUUKMARK ADMIN</a>
-                    </div>
+                <div id="header-wrap">
+                    <div id="header">
+                        <div class="header-logo">
+                            <a href="${pageContext.request.contextPath}/admin/bookmark/list">BUUKMARK ADMIN</a>
+                        </div>
 
-                    <div class="header-welcome">
-                        <c:if test="${! empty sessionScope.SESSION_MEMBER_ID}">
-                            <span>${sessionScope.SESSION_MEMBER_NAME} ( ${sessionScope.SESSION_MEMBER_ID} ) 님 환영합니다.</span>
-                        </c:if>
-                    </div>
+                        <div class="header-left">
+                            <sec:authorize access="isAuthenticated()">
+                                <sec:authentication var="identity" property="principal.identity" />
+                                <sec:authentication var="username" property="principal.username" />
+                                <span>${username} ( ${identity} ) 님 환영합니다.</span>
+                            </sec:authorize>
+                        </div>
 
-                    <div class="header-member">
-                        <c:if test="${! empty sessionScope.SESSION_MEMBER_ID}">
-                            <a href="${pageContext.request.contextPath}/admin/member/view" >마이페이지</a>
-                            <a href="${pageContext.request.contextPath}/admin/member/logout" >로그아웃</a>
-                        </c:if>
-                    </div>
+                        <div class="header-right">
+                            <sec:authorize access="isAnonymous()">
+                                <a href="${pageContext.request.contextPath}/member/login">로그인</a>
+                                <a href="${pageContext.request.contextPath}/member/register">회원가입</a>
+                            </sec:authorize>
+                            <sec:authorize access="isAuthenticated()">
+                                <sec:authentication var="identity" property="principal.identity" />
+                                <a href="${pageContext.request.contextPath}/member/info/${identity}">회원정보</a>
+                                <a href="${pageContext.request.contextPath}/member/logout">로그아웃</a>
+                            </sec:authorize>
+                        </div>
 
-                </div><!-- #header -->
+                    </div><!-- #header -->
+                </div><!-- #header-wrap -->

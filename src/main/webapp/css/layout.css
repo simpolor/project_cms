@@ -1,22 +1,7 @@
-/*
-    colors
-	#EAF6F7, #C7E4DB, #8FBCA7, #959C67, #EEC697, #EFE6DD
-*/
-
-#wrap {
-    min-width: 1000px;
-}
-
-#main {
-
-}
-
-#footer {
-    width: 100%;
-    min-width: 1000px;
-    min-hiehgt: 30px;
-    background: #CACACA;
-}
+/*-- layout start --*/
+#wrap { /* min-width: 1000px; */ }
+#main { }
+#footer-wrap, #footer { background: #CACACA; }
 .footer-copyright {
     width: inherit;
     min-width: inherit;
@@ -27,21 +12,25 @@
     line-height: 30px;
     padding: 0 10px;
 }
+/*-- layout end --*/
 
-/*--- header start ---*/
+/*-- header start --*/
+#header-wrap {
+    width: 100%;
+    height: 30px;
+}
 #header {
     position: relative;
     width: 100%;
     min-width: 1000px;
-    height: 30px;
+    height: inherit;
     margin: 0 auto;
-    border-bottom: 1px solid #ED4C00;
-    background: #FF5E00;
+    border-bottom: 1px solid #000000;
+    background: #000000;
 }
 .header-logo {
     position: absolute;
     width: inherit;
-    min-width: inherit;
     text-align: center;
     line-height: 30px;
 }
@@ -49,40 +38,44 @@
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
-    color: #000;
+    color: #FFFFFF;
 }
-.header-member {
-    position: absolute;
-    right: 0;
-    padding: 0 20px;
-    line-height: 30px;
-}
-.header-member>a{
-    padding-right: 10px;
-    text-decoration: none;
-    color: #000;
-}
-.header-welcome {
+.header-left {
     position: absolute;
     left: 0;
     padding: 0 20px;
     line-height: 30px;
 }
-.header-member>span{
-    padding-left: 10px;
+.header-left>span{
+    color: #FFFFFF;
+}
+
+.header-right {
+    position: absolute;
+    right: 0;
+    padding: 0 20px;
     line-height: 30px;
 }
-/*--- header end ---*/
+.header-right>a{
+    padding-right: 10px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+/*-- header end --*/
 
 
-/*--- nav start ---*/
+/*-- nav start --*/
+#nav-wrap {
+    width: 100%;
+    height: 50px;
+}
 #nav {
     width: 100%;
     min-width: 1000px;
-    height: 50px;
+    height: inherit;
+    border-bottom: 1px solid #000000;
+    background: #FFFFFF;
     margin: 0 auto;
-    border-bottom: 1px solid #ED4C00;
-    background: #FF8224;
 }
 .nav-menus {
     width: inherit;
@@ -94,11 +87,20 @@
 .nav-menus>a {
     padding: 0 10px;
     text-decoration: none;
-    color: #000;
+    color: #000000;
 }
-/*--- nav end ---*/
+/*-- nav end --*/
 
-#section {
+/*-- section start --*/
+#section-wrap {
+    width: 100%;
     height:auto;
+    margin-top: 25px;
     margin-bottom: 100px;
 }
+#section {
+    width: 1000px;
+    min-width: 1000px;
+    margin: 0 auto;
+}
+/*-- section end --*/

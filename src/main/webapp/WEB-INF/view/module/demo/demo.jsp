@@ -8,26 +8,32 @@
 <tiles:insertDefinition name="default-layout">
 	<tiles:putAttribute name="default-body">
 
-				<div id="section">
-					<c:if test="${! empty demo}">
-					<table border="1">
-						<tr>
-							<th>번호</th>
-							<th>이름</th>
-							<th>나이</th>
-							<th>취미</th>
-						</tr>
+				<div id="section-wrap">
+					<div id="section">
+						<c:if test="${! empty demo}">
+							<table border="1">
+								<tr>
+									<th>번호</th>
+									<th>이름</th>
+									<th>나이</th>
+									<th>취미</th>
+								</tr>
 
-						<tr>
-							<td>${demo.seq}</td>
-							<td>${demo.name}</td>
-							<td>${demo.age}</td>
-							<td>${demo.hobby}</td>
-						</tr>
-					</table>
-					</c:if>
-					<img src="${pageContext.request.contextPath}/image/sample.jpg" />
-				</div><!-- #section -->
+								<tr>
+									<td>${demo.seq}</td>
+									<td>${demo.name}</td>
+									<td>${demo.age}</td>
+									<td>${demo.hobby}</td>
+								</tr>
+							</table>
+						</c:if>
+						
+						<img src="/image/sample.jpg">
+						<img src="/image/sample.jpg">
+						<img src="/image/sample.jpg">
+
+					</div><!-- #section -->
+				</div><!-- #section-wrap -->
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

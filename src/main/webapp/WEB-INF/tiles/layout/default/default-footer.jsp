@@ -6,8 +6,10 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"  %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-        <div id="footer">
-            <div class="footer-copyright">
-                <span>Copyright ⓒ Simpolor All rights reserved.</span>
-            </div>
-        </div><!-- #footer .pure-g -->
+        <div id="footer-wrap">
+            <div id="footer">
+                <div class="footer-copyright">
+                    <span>Copyright ⓒ Simpolor All rights reserved.</span>
+                </div>
+            </div><!-- #footer -->
+        </div><!-- #footer-wrap -->
