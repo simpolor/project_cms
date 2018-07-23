@@ -9,7 +9,7 @@
                 <div id="header-wrap">
                     <div id="header">
                         <div class="header-logo">
-                            <a href="${pageContext.request.contextPath}/admin/bookmark/list">BUUKMARK ADMIN</a>
+                            <a href="${pageContext.request.contextPath}/index">SIMPOLOR CMS</a>
                         </div>
 
                         <div class="header-left">

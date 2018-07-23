@@ -7,7 +7,7 @@
     min-width: inherit;
     text-align: center;
 }
-.footer-copyright>span {
+.footer-copyright > span {
     font-size: 15px;
     line-height: 30px;
     padding: 0 10px;
@@ -46,7 +46,7 @@
     padding: 0 20px;
     line-height: 30px;
 }
-.header-left>span{
+.header-left > span{
     color: #FFFFFF;
 }
 
@@ -56,7 +56,7 @@
     padding: 0 20px;
     line-height: 30px;
 }
-.header-right>a{
+.header-right > a {
     padding-right: 10px;
     text-decoration: none;
     color: #FFFFFF;
@@ -84,7 +84,7 @@
     line-height: 50px;
     text-align: center;
 }
-.nav-menus>a {
+.nav-menus > a {
     padding: 0 10px;
     text-decoration: none;
     color: #000000;

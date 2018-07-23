@@ -3,55 +3,78 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"  %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>Memer Register</title>
-<script>
-	function f_submit(){
-		document.getElementById("memberRegisterForm").submit();
-	}
-	
-	function f_move( url ){
-		location.href = url;
-	}
-</script>
-</head>
-<body>
-	<h1>Memer Register</h1>
+<tiles:insertDefinition name="default-layout">
+	<tiles:putAttribute name="default-body">
 
-	<form id="memberRegisterForm" action="/member/register" method="post"> 
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-		<table>
-			<tr>
-				<td><label for="member_id">아이디</label></td>
-				<td><input type="text" name="member_id" id="member_id" placeholder="아이디" required /></td>
-			</tr>
-			<tr>
-				<td><label for="member_pw">비밀번호</label></td>
-				<td><input type="password" name="member_pw" id="member_pw" placeholder="비밀번호" required /></td>
-			</tr>
-			<tr>
-				<td><label for="member_pw_confirm">비밀번호 확인</label></td>
-				<td><input type="password" name="member_pw_confirm" id="member_pw_confirm" placeholder="비밀번호 확인" required /></td>
-			</tr>
-			<tr>
-				<td><label for="member_name">이름</label></td>
-				<td><input type="text" name="member_name" id="member_name" placeholder="이름" required /></td>
-			</tr>
-			<tr>
-				<td><label for="member_email">이메일</label></td>
-				<td><input type="text" name="member_email" id="member_email" placeholder="이메일" required /></td>
-			</tr>
-		</table>
-	</form>
-	
-	<hr> 
-	
-	<button onclick="f_submit()">회원가입</button>
-	<button onclick="f_move('${pageContext.request.contextPath}/index')">뒤로가기</button>
-	
-</body>
-</html>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
+		<script>
+			function f_submit(){
+				document.getElementById("memberRegisterForm").submit();
+			}
+		</script>
+
+		<div id="section-wrap">
+			<div id="section">
+
+				<div class="member">
+
+					<div class="member-title">
+						<span>회원가입</span>
+					</div><!-- #section-title -->
+
+					<div class="member-form">
+						<form id="memberRegisterForm" class="pure-form" method="post" action="/member/register">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+							<table class="member-table">
+								<tr>
+									<th><label for="member_id">아이디</label></th>
+									<td><input type="text" name="member_id" id="member_id" placeholder="아이디" required /></td>
+								</tr>
+								<tr>
+									<th><label for="member_id">비밀번호</label></th>
+									<td><input type="password" name="member_pw" id="member_pw" placeholder="비밀번호" required /></td>
+								</tr>
+								<tr>
+									<th><label for="member_pw_confirm">재확인</label></th>
+									<td><input type="password" name="member_pw_confirm" id="member_pw_confirm" placeholder="비밀번호 재확인" required /></td>
+								</tr>
+								<tr>
+									<th><label for="member_name">이름</label></th>
+									<td><input type="text" name="member_name" id="member_name" placeholder="이름" required /></td>
+								</tr>
+								<tr>
+									<th><label for="member_email">이메일</label></th>
+									<td><input type="text" name="member_email" id="member_email" placeholder="이메일" required /></td>
+								</tr>
+							</table>
+
+						</form>
+					</div><!-- .member-login-form -->
+
+					<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+						<div class="member-error-msg">
+							<span><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></span>
+							<c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session"/>
+						</div><!-- .member-login-form -->
+					</c:if>
+
+					<div class="member-button">
+						<button onclick="f_submit()" class="pure-button">회원가입</button>
+					</div><!-- .member-login-form -->
+
+					<div class="member-link">
+						<a href="${pageContext.request.contextPath}/index">홈으로</a>
+					</div>
+
+				</div><!-- .member -->
+
+			</div><!-- #section -->
+		</div><!-- #section-wrap -->
+
+
+	</tiles:putAttribute>
+</tiles:insertDefinition>
