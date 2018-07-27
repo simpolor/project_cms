@@ -40,7 +40,7 @@ ex) 회원정보 - memberView
 Service
 - Create : create*(생성) 또는 add*(추가)
 - Retrieve : get*(조회) 또는 check*(확인)
-- Update : change*(변경) 또는 edit*(수정) 
+- Update : change*(변경) 또는 edit*(수정)
 - Destroy : destroy*(제거) 또는 remove*(삭제)
 
 * modify : 조금씩 수정
@@ -64,14 +64,16 @@ ex) /member/member_list.jsp
 --------------------------------------------------------
 
 URL 규칙
+
+게시판
 - */create : (구조)생성 
 - */change : (구조)변경 
 - */destroy : (구조)제거 
 
+게시글
 - */list - 리스트 조회
 - */view - 단일 조회
 - */add - 추가
-- */edit - 수정
+- */edit - 편집
 - */remove - 삭제
-
 
