@@ -1,65 +1,270 @@
-/*-- member start --*/
-.member {
+/*-- member-login start --*/
+.member-login {
     width: 350px;
     height: auto;
     margin: 0 auto;
 }
-.member-title {
+.member-login-title {
     width: inherit;
     height: 40px;
     text-align: center;
 }
-.member-title > span {
+.member-login-title > span {
     font-size: 20px;
     font-weight: bold;
     line-height: 40px;
 }
-.member-table {
+.member-login-form{
+    width: inherit;
+    height: auto;
+}
+.member-login-table {
     margin-top: 15px;
     width: 350px;
 }
-.member-table tr {
+.member-login-table tr {
     height: 50px;
 }
-.member-table th {
+.member-login-table th {
     width: 100px;
     font-size: 16px;
-    text-align: center;
 }
-.member-table td {
+.member-login-table td {
     width: 250px;
 }
-.member-table td > input {
+.member-login-table td > input {
     width: 250px;
 }
-.member-button {
+.member-login-button {
     margin-top: 10px;
     width: 350px;
     text-align: right;
 }
-.member-button > button {
+.member-login-button > button {
     width: 250px;
 }
-.member-link {
+.member-login-link {
     margin-top: 10px;
     width: 350px;
     text-align: right;
 }
-.member-link a {
+.member-login-link a {
     font-size: 14px;
     text-decoration: none;
     color: #000000;
+    padding-left: 20px;
 }
-.member-error-msg {
+.member-login-error-msg {
     margin-top: 10px;
     width: 350px;
     text-align: right;
 }
-.member-error-msg > span {
+.member-login-error-msg > span {
     font-size: 14px;
     color: #FF0000;
 }
+/*-- member-login end --*/
 
+/*-- member-list start --*/
+.member-list {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+.member-list-title {
+    width: inherit;
+    height: 40px;
+    text-align: center;
+}
+.member-list-title > span {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.member-list-table {
+    margin-top: 15px;
+    width: 1000px;
+}
+.member-list-table tr {
+    height: 50px;
+}
+.member-list-table th {
+    width: 100px;
+    font-size: 16px;
+}
+.member-list-table td {
+    width: 250px;
+    text-align: center;
+}
+.member-list-link {
+    margin-top: 10px;
+    width: 1000px;
+    text-align: right;
+}
+.member-list-link a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000000;
+    padding-left: 20px;
+}
+/*-- member-list end --*/
 
+/*-- member-register start --*/
+.member-register {
+    width: 350px;
+    height: auto;
+    margin: 0 auto;
+}
+.member-register-title {
+    width: inherit;
+    height: 40px;
+    text-align: center;
+}
+.member-register-title > span {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.member-register-form{
+    width: inherit;
+    height: auto;
+}
+.member-register-table {
+    margin-top: 15px;
+    width: 350px;
+}
+.member-register-table tr {
+    height: 50px;
+}
+.member-register-table th {
+    width: 100px;
+    font-size: 16px;
+}
+.member-register-table td {
+    width: 250px;
+}
+.member-register-table td > input {
+    width: 250px;
+}
+.member-register-button {
+    margin-top: 10px;
+    width: 350px;
+    text-align: right;
+}
+.member-register-button > button {
+    width: 250px;
+}
+.member-register-link {
+    margin-top: 10px;
+    width: 350px;
+    text-align: right;
+}
+.member-register-link a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000000;
+    padding-left: 20px;
+}
+.member-register-error-msg {
+    margin-top: 10px;
+    width: 350px;
+    text-align: right;
+}
+.member-register-error-msg > span {
+    font-size: 14px;
+    color: #FF0000;
+}
+/*-- member-register end --*/
 
-/*-- member end --*/
+/*-- member-register-complete start --*/
+.member-register-complete {
+    width: 350px;
+    height: auto;
+    margin: 0 auto;
+}
+.member-register-complete-title {
+    width: inherit;
+    height: 40px;
+    text-align: center;
+}
+.member-register-complete-title > span {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.member-register-complete-content {
+    margin-top: 10px;
+    width: inherit;
+    height: auto;
+    text-align: left;
+}
+.member-register-complete-content > p {
+    font-size: 16px;
+    line-height: 20px;
+}
+.member-register-complete-link {
+    margin-top: 20px;
+    width: 350px;
+    text-align: right;
+}
+.member-register-complete-link a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000000;
+    padding-left: 20px;
+}
+/*-- member-register-complete end --*/
+
+/*-- member-register start --*/
+.member-info {
+    width: 350px;
+    height: auto;
+    margin: 0 auto;
+}
+.member-info-title {
+    width: inherit;
+    height: 40px;
+    text-align: center;
+}
+.member-info-title > span {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.member-info-table {
+    margin-top: 15px;
+    width: 350px;
+}
+.member-info-table tr {
+    height: 50px;
+}
+.member-info-table th {
+    width: 100px;
+    font-size: 16px;
+}
+.member-info-table td {
+    width: 250px;
+}
+.member-info-table td > input {
+    width: 250px;
+}
+.member-info-button {
+    margin-top: 10px;
+    width: 350px;
+    text-align: right;
+}
+.member-info-button > button {
+    width: 250px;
+}
+.member-info-link {
+    margin-top: 10px;
+    width: 350px;
+    text-align: right;
+}
+.member-info-link a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000000;
+    padding-left: 20px;
+}
+/*-- member-register end --*/

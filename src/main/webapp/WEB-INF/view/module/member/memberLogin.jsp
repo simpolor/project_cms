@@ -19,18 +19,18 @@
 		<div id="section-wrap">
 			<div id="section">
 
-				<div class="member">
+				<div class="member-login">
 
-					<div class="member-title">
+					<div class="member-login-title">
 						<span>회원로그인</span>
-					</div><!-- #section-title -->
+					</div><!-- .member-login-title -->
 
-					<div class="member-form">
+					<div class="member-login-form">
 						<form id="memberLoginForm" class="pure-form" method="post" action="/member/login">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<input type="hidden" name="target_url" value="/member/register"/>
 
-							<table class="member-table">
+							<table class="member-login-table">
 								<tr>
 									<th><label for="member_id">아이디</label></th>
 									<td><input type="text" name="member_id" id="member_id" placeholder="아이디" required /></td>
@@ -45,21 +45,21 @@
 					</div><!-- .member-login-form -->
 
 					<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
-					<div class="member-error-msg">
+					<div class="member-login-error-msg">
 						<span><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></span>
 						<c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session"/>
-					</div><!-- .member-login-form -->
+					</div><!-- .member-login-error-msg -->
 					</c:if>
 
-					<div class="member-button">
+					<div class="member-login-button">
 						<button onclick="f_submit()" class="pure-button">로그인</button>
-					</div><!-- .member-login-form -->
+					</div><!-- .member-login-button -->
 
-					<div class="member-link">
+					<div class="member-login-link">
 						<a href="${pageContext.request.contextPath}/index">홈으로</a>
-					</div>
+					</div><!-- .member-login-link -->
 
-				</div><!-- .member -->
+				</div><!-- .member-login -->
 
 			</div><!-- #section -->
 		</div><!-- #section-wrap -->

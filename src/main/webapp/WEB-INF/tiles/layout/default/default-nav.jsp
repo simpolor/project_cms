@@ -9,11 +9,10 @@
                 <div id="nav-wrap">
                     <div id="nav">
                         <div class="nav-menus">
-                            <a href="${pageContext.request.contextPath}/admin/bookmark/list">즐겨찾기</a>
-                            <a href="${pageContext.request.contextPath}/admin/notice/list">공지사항</a>
-                            <a href="${pageContext.request.contextPath}/admin/board/list">자유게시판</a>
-                            <a href="${pageContext.request.contextPath}/admin/ask/list">문의사항</a>
-                            <a href="${pageContext.request.contextPath}/admin/member/list">회원</a>
+                            <a href="${pageContext.request.contextPath}/member/list">회원관리</a>
+                            <a href="${pageContext.request.contextPath}/access/list">접근관리</a>
+                            <a href="${pageContext.request.contextPath}/role/list">권한관리</a>
+                            <a href="${pageContext.request.contextPath}/demo">데모</a>
                         </div>
                     </div><!-- #nav -->
                 </div><!-- #nav-wrap -->
