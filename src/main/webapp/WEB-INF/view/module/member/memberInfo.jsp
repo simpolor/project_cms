@@ -45,7 +45,7 @@
 					</table><!-- .member-info-table-->
 
 					<div class="member-info-link">
-						<a href="${pageContext.request.contextPath}/member/modify/${member.member_id}">수정하기</a>
+						<a href="${pageContext.request.contextPath}/member/modify/${member.member_id}">수정</a>
 						<a href="${pageContext.request.contextPath}/index">뒤로가기</a>
 					</div><!-- .member-info-link -->
 

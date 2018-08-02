@@ -6,7 +6,6 @@
 	<select id="selectRoleList" resultType="role"> 
 		SELECT role_seq, role_code, role_name, regi_id, regi_name, regi_date, modi_id, modi_id, modi_name, modi_date, del_yn
 		  FROM role
-		 WHERE del_yn='N'
 	  ORDER BY role_seq ASC
 	</select>
 	
