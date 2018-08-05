@@ -41,7 +41,9 @@ public class MemberController {
 	
 	@RequestMapping( value="/member/register", method=RequestMethod.GET)
 	public ModelAndView memberRegisterForm(ModelAndView mav) {
-		
+
+		logger.info("[M] memberRegisterForm");
+
 		mav.setViewName("module/member/memberRegister");
 		
 		return mav;
@@ -50,19 +52,19 @@ public class MemberController {
 	@RequestMapping( value="/member/register", method=RequestMethod.POST)
 	public ModelAndView memberRegister(ModelAndView mav, Member member) {
 
-		System.out.println("/member/register : POST");
-		
+		logger.info("[M] memberRegister");
+
 		String memberId = member.getMember_id();
 		String memberPw = member.getMember_pw();
 		String memberPwConfirm = member.getMember_pw_confirm();
 		String memberName = member.getMember_name();
 		String memberEmail = member.getMember_email();
-		
-		System.out.println("memberId :"+memberId);
-		System.out.println("memberPw :"+memberPw);
-		System.out.println("memberPwConfirm :"+memberPwConfirm);
-		System.out.println("memberName :"+memberName);
-		System.out.println("memberEmail :"+memberEmail);
+
+		logger.info("- memberId :"+memberId);
+		logger.info("- memberPw :"+memberPw);
+		logger.info("- memberPwConfirm :"+memberPwConfirm);
+		logger.info("- memberName :"+memberName);
+		logger.info("- memberEmail :"+memberEmail);
 		
 		if(StringUtil.isEmpty(memberId) || StringUtil.isEmpty(memberPw) || StringUtil.isEmpty(memberPwConfirm) || StringUtil.isEmpty(memberName) || StringUtil.isEmpty(memberEmail)) {
 			mav.setViewName("module/member/memberRegister");
@@ -87,7 +89,9 @@ public class MemberController {
 	
 	@RequestMapping( value="/member/registerComplete", method=RequestMethod.GET)
 	public ModelAndView memberRegisterComplete(ModelAndView mav) {
-		
+
+		logger.info("[M] memberRegisterComplete");
+
 		mav.setViewName("module/member/memberRegisterComplete");
 		
 		return mav;
@@ -95,13 +99,11 @@ public class MemberController {
 	
 	@RequestMapping("/member/list")
 	public ModelAndView memberList() {
-		
-		logger.info("-- Member List");
+
+		logger.info("[M] memberList");
 		
 		List<Member> list = memberService.getMemberList();
-		
-		logger.info("-- list.size : "+list.size());
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("memberList", list);
 		mav.setViewName("module/member/memberList");
@@ -111,7 +113,9 @@ public class MemberController {
 	
 	@RequestMapping( value="/member/info/{member_id}", method=RequestMethod.GET)
 	public ModelAndView memberInfo(ModelAndView mav, @PathVariable String member_id) {
-		
+
+		logger.info("[M] memberInfo");
+
 		Member member = memberService.getMember(member_id);
 		
 		mav.addObject("member", member);
@@ -122,7 +126,9 @@ public class MemberController {
 	
 	@RequestMapping( value="/member/modify/{member_id}", method=RequestMethod.GET)
 	public ModelAndView memberModifyForm(ModelAndView mav, @PathVariable String member_id) {
-		
+
+		logger.info("[M] memberModifyForm");
+
 		Member member = memberService.getMember(member_id);
 
 		mav.addObject("member", member);
@@ -133,12 +139,12 @@ public class MemberController {
 	
 	@RequestMapping( value="/member/modify/{member_id}", method=RequestMethod.POST)
 	public ModelAndView memberModify(ModelAndView mav, @PathVariable String member_id, Member member) {
+
+		logger.info("[M] memberModify");
 		
-		logger.info("-- Member Modify Process");
-		
-		logger.info("> member_id : "+member_id);
-		logger.info("> member_name : "+member.getMember_name());
-		logger.info("> member_email : "+member.getMember_email());
+		logger.info("- member_id : "+member_id);
+		logger.info("- member_name : "+member.getMember_name());
+		logger.info("- member_email : "+member.getMember_email());
 		
 		member.setMember_id(member_id);
 		if(memberService.modifyMember( member) > 0){
@@ -152,8 +158,8 @@ public class MemberController {
 	
 	@RequestMapping( value="/member/delete/{member_id}", method=RequestMethod.GET)
 	public ModelAndView memberDelete(ModelAndView mav, @PathVariable String member_id) {
-		
-		logger.info("-- Member Delete Process");
+
+		logger.info("[M] memberDelete");
 		
 		if(memberService.deleteMember(member_id) > 0) mav.setViewName("redirect:/member/list");
 		else mav.setViewName("module/member/memberModify");

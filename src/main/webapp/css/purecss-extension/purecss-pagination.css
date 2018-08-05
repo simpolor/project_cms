@@ -1,0 +1,24 @@
+/*
+ * Copyright Simpolor
+ */
+
+/* ---- pagination ---- */
+.pure-pagination {text-align: center; margin: 20px;}
+.pure-pagination a, .pure-pagination strong {
+    display: inline-block;
+	background: #FFF;
+    margin-right: 3px;
+    padding: 4px 13px;
+	font-size: 16px;
+	line-height: 20px;;
+	text-decoration: none;
+	color: #4A4A4A;
+	border: 1px solid #BDBDBD;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.pure-pagination a:hover {background-color: #BEBEBE; color: #FFF;}
+.pure-pagination a:active {background: #D5D5D5;}
+.pure-pagination strong {color: #000; background-color: #D5D5D5;}

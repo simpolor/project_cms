@@ -33,8 +33,8 @@ public class AccessController {
 	
 	@RequestMapping("/access/list")
 	public ModelAndView accessList() {
-		
-		logger.info("[M] Access List");
+
+		logger.info("[M] accessList");
 		
 		List<Access> accessList = accessService.getAccessList();
 		
@@ -49,7 +49,7 @@ public class AccessController {
 	@RequestMapping( value="/access/register", method=RequestMethod.GET)
 	public ModelAndView accessRegisterForm(ModelAndView mav, Access access) {
 		
-		logger.info("[M] Access Register Form");
+		logger.info("[M] accessRegisterForm");
 
 		List<Role> roleList = roleService.getRoleList();
 
@@ -62,7 +62,7 @@ public class AccessController {
 	@RequestMapping( value="/access/register", method=RequestMethod.POST)
 	public ModelAndView accessRegister(ModelAndView mav, RedirectAttributes redirectAttributes, Access access) {
 		
-		logger.info("[M] Access Register Process");
+		logger.info("[M] accessRegister");
 
 		access.setRegi_id("admin");
 		access.setRegi_name("관리자");
@@ -84,7 +84,7 @@ public class AccessController {
 	@RequestMapping( value="/access/modify/{access_seq}", method=RequestMethod.GET)
 	public ModelAndView accessModifyForm(ModelAndView mav, @PathVariable int access_seq) {
 
-		logger.info("[M] Access Modify Form");
+		logger.info("[M] accessModifyForm");
 		
 		Access access = accessService.getAccess(access_seq);
 		
@@ -97,12 +97,12 @@ public class AccessController {
 	@RequestMapping( value="/access/modify/{access_seq}", method=RequestMethod.POST)
 	public ModelAndView accessModify(ModelAndView mav, @PathVariable int access_seq, Access access) {
 		
-		logger.info("[M] Access Modify Process");
+		logger.info("[M] accessModify");
 		
-		logger.info("-- access_seq : "+access_seq);
-		logger.info("-- access_url : "+access.getAccess_url());
-		logger.info("-- access_roles : "+access.getAccess_roles());
-		logger.info("-- del_yn : "+access.getDel_yn());
+		logger.info("- access_seq : "+access_seq);
+		logger.info("- access_url : "+access.getAccess_url());
+		logger.info("- access_roles : "+access.getAccess_roles());
+		logger.info("- del_yn : "+access.getDel_yn());
 		
 		access.setAccess_seq(access_seq);
 		access.setModi_id("admin");
@@ -121,8 +121,8 @@ public class AccessController {
 	@RequestMapping( value="/access/delete/{access_seq}", method=RequestMethod.GET)
 	public ModelAndView accessDelete(ModelAndView mav, @PathVariable int access_seq) {
 		
-		logger.info("[M] Access Delete Process");
-		logger.info("-- access_seq : "+access_seq);
+		logger.info("[M] accessDelete");
+		logger.info("- access_seq : "+access_seq);
 		
 		Access access = new Access();
 		access.setAccess_seq(access_seq);

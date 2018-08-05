@@ -1,10 +1,9 @@
 package com.simpolor.cms.module.main;
 
-import javax.servlet.http.HttpServletRequest;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,23 +16,27 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
+    final Logger logger = LoggerFactory.getLogger(MainController.class);
+
     @Autowired
     private SecurityProperty securityProperty;
 
     @RequestMapping({"/", "/index", "/main", "/main/index"})
     public ModelAndView index(ModelAndView mav) {
 
+        logger.info("[M] index");
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println("authentication : "+authentication.getName());
-        System.out.println("SecurityContext.isAuthenticated() : "+SecurityContext.isAuthenticated());
+        logger.info("- authentication : "+authentication.getName());
+        logger.info("- SecurityContext.isAuthenticated() : "+SecurityContext.isAuthenticated());
 
         if(SecurityContext.isAuthenticated()){
             User user = SecurityContext.getPrincipal();
-            System.out.println("user.getIdentity() : "+user.getIdentity());
-            System.out.println("user.getPassword() : "+user.getPassword());
-            System.out.println("user.getName() : "+user.getName());
-            System.out.println("user.getEmail() : "+user.getEmail());
-            System.out.println("user.getAuthorities() : "+user.getAuthorities());
+            logger.info("- user.getIdentity() : "+user.getIdentity());
+            logger.info("- user.getPassword() : "+user.getPassword());
+            logger.info("- user.getName() : "+user.getName());
+            logger.info("- user.getEmail() : "+user.getEmail());
+            logger.info("- user.getAuthorities() : "+user.getAuthorities());
 
             mav.addObject("user", user);
         }

@@ -29,7 +29,7 @@ public class SecureObjectAdapter {
 		LinkedHashMap<RequestMatcher, List<ConfigAttribute>> resourceMap = new LinkedHashMap<RequestMatcher, List<ConfigAttribute>>();
 		
 		// URL 및 권한 정보를 DB에서 호출
-		List<Access> accessList = accessService.getAccessList();
+		List<Access> accessList = accessService.getResourceList();
 		
 		if(accessList != null && !accessList.isEmpty()) {
 			resourceMap = new LinkedHashMap<RequestMatcher, List<ConfigAttribute>>();

@@ -1,14 +1,24 @@
 package com.simpolor.cms.module.board;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 public class BoardController {
 
+    final Logger logger = LoggerFactory.getLogger(BoardController.class);
+
     @RequestMapping("/board/list")
-    public String boardList(){
-        return "Board List";
+    public ModelAndView boardList(ModelAndView mav){
+
+        logger.info("[M] boardList");
+
+        mav.setViewName("module/board/boardList");
+
+        return mav;
     }
 }
 

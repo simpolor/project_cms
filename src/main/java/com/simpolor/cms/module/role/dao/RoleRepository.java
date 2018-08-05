@@ -2,23 +2,40 @@ package com.simpolor.cms.module.role.dao;
 
 
 import com.simpolor.cms.module.role.model.Role;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
-public interface RoleRepository {
+@Repository
+public class RoleRepository {
 
-	List<Role> selectRoleList();
-	
-	Role selectRole(int role_seq);
-	
-	int selectRoleCodeCheck(String role_code);
-	
-	int insertRole(Role role);
-	
-	int updateRole(Role role);
-	
-	int deleteRole(Role role);
+	@Autowired
+	private SqlSession sqlSession;
+
+	public List<Role> selectRoleList(){
+		return sqlSession.selectList("selectRoleList");
+	}
+
+	public Role selectRole(int role_seq){
+		return sqlSession.selectOne("selectRole", role_seq);
+	}
+
+	public int selectRoleCodeCheck(String role_code){
+		return sqlSession.selectOne("selectRoleCodeCheck", role_code);
+	}
+
+	public int insertRole(Role role){
+		return sqlSession.insert("insertRole", role);
+	}
+
+	public int updateRole(Role role){
+		return sqlSession.update("updateRole", role);
+	}
+
+	public int deleteRole(Role role){
+		return sqlSession.update("deleteRole", role);
+	}
 	
 }

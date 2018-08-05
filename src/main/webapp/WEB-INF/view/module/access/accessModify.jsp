@@ -9,7 +9,7 @@
 <tiles:insertDefinition name="default-layout">
 	<tiles:putAttribute name="default-body">
 
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/access.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/module/access.css">
 		<script>
             function f_submit(){
                 document.getElementById("accessModifyForm").submit();

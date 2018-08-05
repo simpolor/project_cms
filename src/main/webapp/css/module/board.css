@@ -1,0 +1,74 @@
+/*-- board-list start --*/
+.board-list {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+.board-list-title {
+    width: inherit;
+    height: 40px;
+    text-align: center;
+}
+.board-list-title > span {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.board-list-table {
+    margin-top: 15px;
+    width: 1000px;
+}
+.board-list-link {
+    margin-top: 10px;
+    width: 1000px;
+    text-align: right;
+}
+.board-list-link a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000000;
+    padding-left: 20px;
+}
+/*-- board-list end --*/
+
+/*-- board-register start --*/
+.board-register {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+.board-register-title {
+    width: inherit;
+    height: 40px;
+    text-align: center;
+}
+.board-register-title > span {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+.board-register-form{
+    width: inherit;
+    height: auto;
+}
+.board-register-link {
+    margin-top: 10px;
+    width: 1000px;
+    text-align: right;
+}
+.board-register-link a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000000;
+    padding-left: 20px;
+}
+.board-register-error-msg {
+    margin-top: 10px;
+    width: 1000px;
+    text-align: right;
+}
+.board-register-error-msg > span {
+    font-size: 14px;
+    color: #FF0000;
+}
+/*-- board-register end --*/

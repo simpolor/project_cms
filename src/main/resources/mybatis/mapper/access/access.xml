@@ -37,6 +37,13 @@
 		   SET modi_id=#{modi_id}, modi_name=#{modi_name}, modi_date=now(), del_yn='Y'
 		 WHERE access_seq=#{access_seq}
 	</update>
+
+	<select id="selectResourceList" resultType="access">
+		SELECT access_url, access_roles
+		  FROM access
+		 WHERE del_yn = 'N'
+	  ORDER BY access_url ASC
+	</select>
 	
 
 </mapper>

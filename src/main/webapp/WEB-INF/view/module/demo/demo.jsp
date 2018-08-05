@@ -8,32 +8,49 @@
 <tiles:insertDefinition name="default-layout">
 	<tiles:putAttribute name="default-body">
 
-				<div id="section-wrap">
-					<div id="section">
-						<c:if test="${! empty demo}">
-							<table border="1">
-								<tr>
-									<th>번호</th>
-									<th>이름</th>
-									<th>나이</th>
-									<th>취미</th>
-								</tr>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/module/demo.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/purecss-extension/purecss-modal.css">
 
-								<tr>
-									<td>${demo.seq}</td>
-									<td>${demo.name}</td>
-									<td>${demo.age}</td>
-									<td>${demo.hobby}</td>
-								</tr>
-							</table>
-						</c:if>
-						
-						<img src="/image/sample.jpg">
-						<img src="/image/sample.jpg">
-						<img src="/image/sample.jpg">
+		<div id="section-wrap">
+			<div id="section">
 
-					</div><!-- #section -->
-				</div><!-- #section-wrap -->
+				<div class="demo">
+
+					<div class="demo-title">
+						<span>데모 목록</span>
+					</div><!-- .demo-title -->
+
+					<c:if test="${! empty demo}">
+						<table class="pure-table pure-table-horizontal demo-table">
+
+							<thead>
+							<tr>
+								<th>번호</th>
+								<th>이름</th>
+								<th>나이</th>
+								<th>취미</th>
+							</tr>
+							</thead>
+
+							<tbody>
+							<tr>
+								<td>${demo.seq}</td>
+								<td>${demo.name}</td>
+								<td>${demo.age}</td>
+								<td>${demo.hobby}</td>
+							</tr>
+							</tbody>
+						</table>
+					</c:if>
+
+					<img src="/image/sample.jpg">
+					<img src="/image/sample.jpg">
+					<img src="/image/sample.jpg">
+
+				</div<!-- #demo -->
+
+			</div><!-- #section -->
+		</div><!-- #section-wrap -->
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

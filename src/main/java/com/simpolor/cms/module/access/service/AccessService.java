@@ -37,4 +37,8 @@ public class AccessService {
 		return accessRepository.deleteAccess(access);
 	}
 
+	public List<Access> getResourceList() {
+		return accessRepository.selectResourceList();
+	}
+
 }
