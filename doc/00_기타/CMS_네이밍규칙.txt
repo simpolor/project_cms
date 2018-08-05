@@ -38,10 +38,10 @@ ex) 회원정보 - memberView
 --------------------------------------------------------
 
 Service
-- Create : create*(생성) 또는 add*(추가)
-- Retrieve : get*(조회) 또는 check*(확인)
-- Update : change*(변경) 또는 edit*(수정)
-- Destroy : destroy*(제거) 또는 remove*(삭제)
+- Create : create*(생성하다) 또는 register*(등록하다)
+- Retrieve : get*(조회하다) 또는 is*(이다)
+- Update : change*(변경하다) 또는 modify*(수정하다)
+- Destroy : destroy*(제거히디) 또는 delete*(삭제하다)
 
 * modify : 조금씩 수정
 * change : 완전히 변경
