@@ -20,7 +20,7 @@
 						<span>권한관리 목록</span>
 					</div><!-- .role-list-title -->
 
-					<table class="role-list-table">
+					<table class="pure-table pure-table-horizontal role-list-table">
 						<colgroup>
 							<col width="5%" />
 							<col width="20%" />

@@ -9,7 +9,10 @@
 
 <tiles:insertDefinition name="default-layout">
 	<tiles:putAttribute name="default-body">
+
+		<script src="https://use.fontawesome.com/6714ff5e81.js"></script>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/module/board.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/purecss-extension/purecss-pagination.css">
 		
 		<div id="section-wrap">
 			<div id="section">
@@ -80,6 +83,22 @@
 					</div><!-- .board-list-link -->
 
 				</div><!-- .board-list -->
+
+				<div class="board-pagination">
+					<div class="pure-pagination">
+						<a href="#"><i class="fa fa-chevron-left"></i></a>
+						<a href="#"><i class="fa fa-angle-left"></i></a>
+
+						<a href="#">1</a>
+						<strong>2</strong>
+						<a href="#">3</a>
+						<a href="#">4</a>
+						<a href="#">5</a>
+
+						<a href="#"><i class="fa fa-angle-right"></i></a>
+						<a href="#"><i class="fa fa-chevron-right"></i></a>
+					</div>
+				</div>
 
 			</div><!-- #section -->
 		</div><!-- #section-wrap -->

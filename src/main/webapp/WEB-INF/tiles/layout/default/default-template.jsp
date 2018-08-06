@@ -21,7 +21,7 @@
         <!--<![endif]-->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout/stickyfooter.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout/layout.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/purecss-extension/purecss-common.css">>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/purecss-extension/purecss-common.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/default.js"></script>

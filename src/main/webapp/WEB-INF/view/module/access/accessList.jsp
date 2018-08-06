@@ -20,7 +20,7 @@
 						<span>접근관리 목록</span>
 					</div><!-- .access-list-title -->
 
-					<table class="access-list-table">
+					<table class="pure-table pure-table-horizontal access-list-table">
 						<colgroup>
 							<col width="5%" />
 							<col width="20%" />

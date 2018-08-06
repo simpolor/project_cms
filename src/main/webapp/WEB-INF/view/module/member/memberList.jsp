@@ -25,7 +25,7 @@
 						<span>회원 목록</span>
 					</div><!-- .member-list-title -->
 
-					<table class="member-list-table">
+					<table class="pure-table pure-table-horizontal member-list-table">
 						<colgroup>
 							<col width="10%" />
 							<col width="10%" />

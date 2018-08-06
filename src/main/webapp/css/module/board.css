@@ -72,3 +72,11 @@
     color: #FF0000;
 }
 /*-- board-register end --*/
+
+/*-- board-pagination start --*/
+.board-pagination {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+/*-- board-pagination end --*/
