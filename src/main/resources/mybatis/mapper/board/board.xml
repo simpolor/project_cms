@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simpolor.cms.module.board.dao.BoardDao">
+
+	<select id="selectBoardTotalCount" parameterType="board" resultType="int">
+		SELECT COUNT(*)
+		  FROM board
+		 WHERE del_yn = 'N'
+	</select>
+
+	<select id="selectBoardList" parameterType="board" resultType="board">
+		SELECT seq, title, content, regi_id, regi_name, regi_date, modi_id, modi_id, modi_name, modi_date, del_yn
+		  FROM board
+		 WHERE del_yn = 'N'
+	  ORDER BY seq DESC
+	      LIMIT #{limit} OFFSET #{offset}
+	</select>
+
+	<select id="selectBoard" parameterType="int" resultType="board">
+		SELECT seq, title, content, regi_id, regi_name, regi_date, modi_id, modi_id, modi_name, modi_date, del_yn
+		  FROM board
+		 WHERE seq = #{seq}
+	</select>
+	<insert id="insertBoard" parameterType="board">
+		INSERT INTO board (title, content, regi_id, regi_name, regi_date)
+		     VALUES (#{title}, #{content}, #{regi_id}, #{regi_name}, now())
+	</insert>
+	
+	<update id="updateBoard" parameterType="board">
+		UPDATE board
+		   SET title=#{title}, content=#{content}, modi_id=#{modi_id}, modi_name=#{modi_name}, modi_date=now(), del_yn=#{del_yn}
+		 WHERE seq = #{seq}
+	</update>
+	
+	<update id="deleteBoard" parameterType="board">
+		UPDATE board
+		   SET modi_id=#{modi_id}, modi_name=#{modi_name}, modi_date=now(), del_yn='Y'
+		 WHERE seq = #{seq}
+	</update>
+
+</mapper>

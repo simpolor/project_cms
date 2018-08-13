@@ -13,7 +13,7 @@
 		<script src="https://use.fontawesome.com/6714ff5e81.js"></script>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/module/board.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/purecss-extension/purecss-pagination.css">
-		
+
 		<div id="section-wrap">
 			<div id="section">
 
@@ -39,30 +39,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>제목1</td>
-								<td>2018-08-25</td>
-								<td>Simpolor</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>제목2</td>
-								<td>2018-08-25</td>
-								<td>Simpolor</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>제목3</td>
-								<td>2018-08-25</td>
-								<td>Simpolor</td>
-							</tr>
 							<c:choose>
 								<c:when test="${! empty boardList}">
 									<c:forEach var="list" items="${boardList}">
 										<tr>
-											<td>${list.board_seq}</td>
-											<td>${list.board_title}</td>
+											<td>${list.seq}</td>
+											<td><a href="${pageContext.request.contextPath}/board/view/${list.seq}">${list.title}</a></td>
 											<td>${list.regi_date}</td>
 											<td>${list.regi_name}</td>
 										</tr>
@@ -78,7 +60,7 @@
 					</table><!-- .board-list-table -->
 
 					<div class="board-list-link">
-						<a href="${pageContext.request.contextPath}/board/register">등록</a>
+						<a href="${pageContext.request.contextPath}/board/write">등록</a>
 						<a href="${pageContext.request.contextPath}/index">뒤로가기</a>
 					</div><!-- .board-list-link -->
 
