@@ -1,8 +1,9 @@
 package com.simpolor.cms.module.member;
 
-import com.simpolor.cms.util.StringUtil;
 import com.simpolor.cms.module.member.model.Member;
 import com.simpolor.cms.module.member.service.MemberService;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,12 +67,12 @@ public class MemberController {
 		logger.info("- memberName :"+memberName);
 		logger.info("- memberEmail :"+memberEmail);
 		
-		if(StringUtil.isEmpty(memberId) || StringUtil.isEmpty(memberPw) || StringUtil.isEmpty(memberPwConfirm) || StringUtil.isEmpty(memberName) || StringUtil.isEmpty(memberEmail)) {
+		if(StringUtils.isEmpty(memberId) || StringUtils.isEmpty(memberPw) || StringUtils.isEmpty(memberPwConfirm) || StringUtils.isEmpty(memberName) || StringUtils.isEmpty(memberEmail)) {
 			mav.setViewName("module/member/memberRegister");
 			return mav;
 		}
 		
-		if(StringUtil.isEquals(memberPw, memberPwConfirm)) {
+		if(StringUtils.equals(memberPw, memberPwConfirm)) {
 			if(memberService.isMemberId(memberId) == 0) {
 				member.setMember_roles("USER");
 				int result = memberService.registerMember(member);

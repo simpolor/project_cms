@@ -43,6 +43,8 @@ dependencies {
     compile('javax.servlet:jstl:1.2')
     compile('org.apache.tiles:tiles-jsp:3.0.8')
 
+    compile('org.apache.commons:commons-lang3:3.7')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
 }

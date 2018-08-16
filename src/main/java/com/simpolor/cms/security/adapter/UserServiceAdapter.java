@@ -1,9 +1,10 @@
 package com.simpolor.cms.security.adapter;
 
-import com.simpolor.cms.util.StringUtil;
 import com.simpolor.cms.module.member.model.Member;
 import com.simpolor.cms.module.member.service.MemberService;
 import com.simpolor.cms.security.model.User;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ final Logger logger = LoggerFactory.getLogger(UserServiceAdapter.class);
 			String memberRoles = member.getMember_roles();
 
 			List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-			if(memberRoles != null && !StringUtil.isEmpty(memberRoles)){
+			if(memberRoles != null && !StringUtils.isEmpty(memberRoles)){
 				String[] memberRoleSplit = memberRoles.split(",");
 				for(String role : memberRoleSplit) {
 					grantedAuthorities.add(new SimpleGrantedAuthority(role.trim()));

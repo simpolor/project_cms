@@ -82,6 +82,48 @@
 					</div>
 				</div>
 
+				<div class="board-pagination">
+					<a href="${pageContext.request.contextPath}/board/list/1"><i class="fa fa-chevron-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/list/${paging.startPage}"><i class="fa fa-angle-double-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/list/${paging.prevPage}"><i class="fa fa-angle-left"></i></a>
+
+					<c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
+						<c:choose>
+							<c:when test="${i == paging.pageNo}">
+								<strong>${i}</strong>
+							</c:when>
+							<c:otherwise>
+								<a href="${pageContext.request.contextPath}/board/list/${i}">${i}</a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+
+					<a href="${pageContext.request.contextPath}/board/list/${paging.nextPage}"><i class="fa fa-angle-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/list/${paging.endPage}"><i class="fa fa-angle-double-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/list/${paging.totalPage}"><i class="fa fa-chevron-right"></i></a>
+				</div><!-- board-pagination -->
+
+				<div class="board-pagination">
+					<a href="${pageContext.request.contextPath}/board/list/${pagination.firstPageNo}"><i class="fa fa-chevron-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/list/${pagination.startPageNo}"><i class="fa fa-angle-double-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/list/${pagination.prevPageNo}"><i class="fa fa-angle-left"></i></a>
+
+					<c:forEach var="i" begin="${pagination.startPageNo}" end="${pagination.endPageNo}">
+						<c:choose>
+							<c:when test="${i == pagination.currentPageNo}">
+								<strong>${i}</strong>
+							</c:when>
+							<c:otherwise>
+								<a href="${pageContext.request.contextPath}/board/list/${i}">${i}</a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+
+					<a href="${pageContext.request.contextPath}/board/list/${pagination.nextPageNo}"><i class="fa fa-angle-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/list/${pagination.endPageNo}"><i class="fa fa-angle-double-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/list/${pagination.finalPageNo}"><i class="fa fa-chevron-right"></i></a>
+				</div><!-- board-pagination -->
+
 			</div><!-- #section -->
 		</div><!-- #section-wrap -->
 

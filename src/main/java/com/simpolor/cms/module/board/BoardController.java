@@ -1,16 +1,23 @@
 package com.simpolor.cms.module.board;
 
 import com.simpolor.cms.component.Pagination;
+import com.simpolor.cms.component.PaginationBuilder;
+import com.simpolor.cms.component.PaginationUtil;
 import com.simpolor.cms.module.board.model.Board;
 import com.simpolor.cms.module.board.service.BoardService;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class BoardController {
@@ -20,24 +27,31 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping("/board/list")
-    public ModelAndView boardList(ModelAndView mav){
+    @GetMapping("/board/list/{page}")
+    public ModelAndView boardList(ModelAndView mav, @PathVariable int page ){
 
         logger.info("[M] boardList");
 
         Board board = new Board();
 
+        if(page <= 0){
+            page = 1;
+        }
+
         // 전체 갯수 가져오기
         int totalCount = boardService.getBoardTotalCount(board);
 
-        // page 파라미터 값 가져오기
-        int page = 1;
-
         // 페이징 정보 추가
-        Pagination paging = new Pagination();
+        PaginationUtil paging = new PaginationUtil();
         paging.setTotalCount(totalCount);
         paging.setPageNo(page);
         paging.makePagination();
+
+        PaginationBuilder paginationBuilder = new PaginationBuilder();
+        Pagination pagination = paginationBuilder
+                                    .setCurrentPageNo(page)
+                                    .setNumberOfRecords(totalCount)
+                                    .build();
 
         // bookmarkVO에 offset, limit 세팅
         board.setOffset(paging.getOffset());
@@ -49,17 +63,27 @@ public class BoardController {
 
         mav.addObject("boardList", list);
         mav.addObject("paging", paging);
+        mav.addObject("pagination", pagination);
+
         mav.setViewName("module/board/boardList");
 
         return mav;
     }
 
     @GetMapping("/board/view/{seq}")
-    public ModelAndView boardView(ModelAndView mav, @PathVariable int seq){
+    public ModelAndView boardView(HttpServletRequest request, ModelAndView mav, @PathVariable int seq){
 
         logger.info("[M] boardView");
 
         Board board = boardService.getBoard(seq);
+        System.out.println("board : "+board);
+
+        String referer = request.getHeader("referer");
+
+        if(ObjectUtils.isEmpty(board)){
+            System.out.println("referer : "+referer);
+            mav.setViewName("redirect:"+referer);
+        }
 
         mav.addObject("board", board);
         mav.setViewName("module/board/boardView");
@@ -84,6 +108,17 @@ public class BoardController {
 
         board.setRegi_id("test");
         board.setRegi_name("test");
+
+        /*int result = 0;
+        for(int i=0; i<150; i++){
+            result = boardService.registerBoard(board);
+            String[] title = StringUtils.split(board.getTitle(), " - ");
+            String[] content = StringUtils.split(board.getContent(), " - ");
+            board.setTitle(title[0] + " - "+i);
+            board.setContent(content[0] + " - "+i);
+            System.out.println("i : "+i);
+        }*/
+
         int result = boardService.registerBoard(board);
         if(result > 0){
             mav.setViewName("redirect:/board/list");
