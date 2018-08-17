@@ -9,6 +9,9 @@
 <tiles:insertDefinition name="default-layout">
 	<tiles:putAttribute name="default-body">
 
+		<spring:message code="cms.test" />
+
+		<hr />
 		<sec:authorize access="isAnonymous()">
 			<a href="/member/login">로그인</a><br />
 			<a href="/member/register">회원가입</a><br />
