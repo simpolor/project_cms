@@ -12,30 +12,30 @@
 
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/module/board.css">
 		<script>
-            function f_write(){
-                var form = $("#boardWriteForm");
-                form.action = '/board/write';
+            function f_change() {
+                var form = document.getElementById('boardManagerChangeForm');
                 form.submit();
             }
 		</script>
-		
+
 		<div id="section-wrap">
 			<div id="section">
 
 				<div class="board-form">
 
 					<div class="board-title">
-						<span>게시판 목록</span>
+						<span>게시판관리 변경</span>
 					</div><!-- .board-list-title -->
 
-					<form id="boardWriteForm" method="post">
+					<form id="boardManagerChangeForm" action="${pageContext.request.contextPath}/board/manager/change" method="post">
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						<input type="text" name="title" id="title" />
+						<input type="hidden" name="board_seq" id="board_seq" value="${boardManager.board_seq}"/>
+						<input type="text" name="board_id" id="board_id" value="${boardManager.board_id}"/>
 						<hr />
-						<textarea name="content" id="content"></textarea>
+						<input type="text" name="board_name" id="board_name" value="${boardManager.board_name}"/>
 					</form>
 
-					<a href="#" onclick="f_write(); return false;">글쓰기</a>
+					<a href="#" onclick="f_change(); return false;">변경</a>
 					<a href="#" onclick="history.back(); return false;">취소</a>
 
 				</div>

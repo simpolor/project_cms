@@ -14,6 +14,7 @@
                             <a href="${pageContext.request.contextPath}/role/list">권한관리</a>
                             <a href="${pageContext.request.contextPath}/demo">데모</a>
                             <a href="${pageContext.request.contextPath}/board/list/1">게시판</a>
+                            <a href="${pageContext.request.contextPath}/board/manager/list/1">게시판관리</a>
                         </div>
                     </div><!-- #nav -->
                 </div><!-- #nav-wrap -->

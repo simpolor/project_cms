@@ -60,7 +60,7 @@
 					</table><!-- .board-list-table -->
 
 					<div class="board-list-link">
-						<a href="${pageContext.request.contextPath}/board/write">등록</a>
+						<a href="${pageContext.request.contextPath}/board/write">글쓰기</a>
 						<a href="${pageContext.request.contextPath}/index">뒤로가기</a>
 					</div><!-- .board-list-link -->
 

@@ -7,6 +7,7 @@
         <typeAlias alias="role" type="com.simpolor.cms.module.role.model.Role" />
         <typeAlias alias="access" type="com.simpolor.cms.module.access.model.Access" />
         <typeAlias alias="board" type="com.simpolor.cms.module.board.model.Board" />
+        <typeAlias alias="boardManager" type="com.simpolor.cms.module.board.model.BoardManager" />
     </typeAliases>
 
     <mappers>
@@ -15,6 +16,7 @@
         <mapper resource="mybatis/mapper/role/role.xml"/>
         <mapper resource="mybatis/mapper/access/access.xml"/>
         <mapper resource="mybatis/mapper/board/board.xml"/>
+        <mapper resource="mybatis/mapper/board/boardManager.xml"/>
     </mappers>
 
 </configuration>

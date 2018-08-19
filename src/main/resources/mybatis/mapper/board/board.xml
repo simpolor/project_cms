@@ -22,7 +22,7 @@
 		  FROM board
 		 WHERE seq = #{seq}
 	</select>
-	<insert id="insertBoard" parameterType="board">
+	<insert id="insertBoard" parameterType="board" useGeneratedKeys="true" keyProperty="seq">
 		INSERT INTO board (title, content, regi_id, regi_name, regi_date)
 		     VALUES (#{title}, #{content}, #{regi_id}, #{regi_name}, now())
 	</insert>

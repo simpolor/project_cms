@@ -35,7 +35,7 @@
 						<textarea name="content" id="content">${board.content}</textarea>
 					</form>
 
-					<a href="#" onclick="f_modify(); return false;">완료</a>
+					<a href="#" onclick="f_modify(); return false;">글수정</a>
 					<a href="#" onclick="history.back(); return false;">취소</a>
 
 				</div>

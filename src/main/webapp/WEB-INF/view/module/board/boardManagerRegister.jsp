@@ -12,9 +12,9 @@
 
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/module/board.css">
 		<script>
-            function f_write(){
-                var form = $("#boardWriteForm");
-                form.action = '/board/write';
+            function f_register(){
+                var form = $("#boardManagerRegisterForm");
+                form.action = '/board/manager/register';
                 form.submit();
             }
 		</script>
@@ -25,17 +25,17 @@
 				<div class="board-form">
 
 					<div class="board-title">
-						<span>게시판 목록</span>
+						<span>게시판관리 등록</span>
 					</div><!-- .board-list-title -->
 
-					<form id="boardWriteForm" method="post">
+					<form id="boardManagerRegisterForm" method="post">
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						<input type="text" name="title" id="title" />
+						<input type="text" name="board_id" id="board_id" />
 						<hr />
-						<textarea name="content" id="content"></textarea>
+						<input type="text" name="board_name" id="board_name" />
 					</form>
 
-					<a href="#" onclick="f_write(); return false;">글쓰기</a>
+					<a href="#" onclick="f_register(); return false;">등록</a>
 					<a href="#" onclick="history.back(); return false;">취소</a>
 
 				</div>

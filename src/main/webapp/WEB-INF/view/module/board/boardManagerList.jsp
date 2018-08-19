@@ -20,7 +20,7 @@
 				<div class="board-list">
 
 					<div class="board-list-title">
-						<span>게시판 목록</span>
+						<span>게시판관리 목록</span>
 					</div><!-- .board-list-title -->
 
 					<table class="pure-table pure-table-horizontal board-list-table">
@@ -33,18 +33,18 @@
 						<thead>
 							<tr>
 								<th>순번</th>
-								<th>제목</th>
+								<th>게시판 이름</th>
 								<th>등록일</th>
 								<th>등록자</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:choose>
-								<c:when test="${! empty boardList}">
-									<c:forEach var="list" items="${boardList}">
+								<c:when test="${! empty boardManagerList}">
+									<c:forEach var="list" items="${boardManagerList}">
 										<tr>
-											<td>${list.seq}</td>
-											<td><a href="${pageContext.request.contextPath}/board/view/${list.seq}">${list.title}</a></td>
+											<td>${list.board_seq}</td>
+											<td><a href="${pageContext.request.contextPath}/board/manager/info/${list.board_seq}">${list.board_name}</a></td>
 											<td>${list.regi_date}</td>
 											<td>${list.regi_name}</td>
 										</tr>
@@ -60,7 +60,7 @@
 					</table><!-- .board-list-table -->
 
 					<div class="board-list-link">
-						<a href="${pageContext.request.contextPath}/board/write">등록</a>
+						<a href="${pageContext.request.contextPath}/board/manager/register">등록</a>
 						<a href="${pageContext.request.contextPath}/index">뒤로가기</a>
 					</div><!-- .board-list-link -->
 
@@ -83,9 +83,9 @@
 				</div>
 
 				<div class="board-pagination">
-					<a href="${pageContext.request.contextPath}/board/list/1"><i class="fa fa-chevron-left"></i></a>
-					<a href="${pageContext.request.contextPath}/board/list/${paging.startPage}"><i class="fa fa-angle-double-left"></i></a>
-					<a href="${pageContext.request.contextPath}/board/list/${paging.prevPage}"><i class="fa fa-angle-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/1"><i class="fa fa-chevron-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${paging.startPage}"><i class="fa fa-angle-double-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${paging.prevPage}"><i class="fa fa-angle-left"></i></a>
 
 					<c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
 						<c:choose>
@@ -93,20 +93,20 @@
 								<strong>${i}</strong>
 							</c:when>
 							<c:otherwise>
-								<a href="${pageContext.request.contextPath}/board/list/${i}">${i}</a>
+								<a href="${pageContext.request.contextPath}/board/manager/list/${i}">${i}</a>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 
-					<a href="${pageContext.request.contextPath}/board/list/${paging.nextPage}"><i class="fa fa-angle-right"></i></a>
-					<a href="${pageContext.request.contextPath}/board/list/${paging.endPage}"><i class="fa fa-angle-double-right"></i></a>
-					<a href="${pageContext.request.contextPath}/board/list/${paging.totalPage}"><i class="fa fa-chevron-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${paging.nextPage}"><i class="fa fa-angle-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${paging.endPage}"><i class="fa fa-angle-double-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${paging.totalPage}"><i class="fa fa-chevron-right"></i></a>
 				</div><!-- board-pagination -->
 
 				<div class="board-pagination">
-					<a href="${pageContext.request.contextPath}/board/list/${pagination.firstPageNo}"><i class="fa fa-chevron-left"></i></a>
-					<a href="${pageContext.request.contextPath}/board/list/${pagination.startPageNo}"><i class="fa fa-angle-double-left"></i></a>
-					<a href="${pageContext.request.contextPath}/board/list/${pagination.prevPageNo}"><i class="fa fa-angle-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${pagination.firstPageNo}"><i class="fa fa-chevron-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${pagination.startPageNo}"><i class="fa fa-angle-double-left"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${pagination.prevPageNo}"><i class="fa fa-angle-left"></i></a>
 
 					<c:forEach var="i" begin="${pagination.startPageNo}" end="${pagination.endPageNo}">
 						<c:choose>
@@ -114,14 +114,14 @@
 								<strong>${i}</strong>
 							</c:when>
 							<c:otherwise>
-								<a href="${pageContext.request.contextPath}/board/list/${i}">${i}</a>
+								<a href="${pageContext.request.contextPath}/board/manager/list/${i}">${i}</a>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 
-					<a href="${pageContext.request.contextPath}/board/list/${pagination.nextPageNo}"><i class="fa fa-angle-right"></i></a>
-					<a href="${pageContext.request.contextPath}/board/list/${pagination.endPageNo}"><i class="fa fa-angle-double-right"></i></a>
-					<a href="${pageContext.request.contextPath}/board/list/${pagination.finalPageNo}"><i class="fa fa-chevron-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${pagination.nextPageNo}"><i class="fa fa-angle-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${pagination.endPageNo}"><i class="fa fa-angle-double-right"></i></a>
+					<a href="${pageContext.request.contextPath}/board/manager/list/${pagination.finalPageNo}"><i class="fa fa-chevron-right"></i></a>
 				</div><!-- board-pagination -->
 
 			</div><!-- #section -->

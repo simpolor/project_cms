@@ -12,30 +12,31 @@
 
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/module/board.css">
 		<script>
-            function f_write(){
-                var form = $("#boardWriteForm");
-                form.action = '/board/write';
+            function f_remove() {
+                var form = document.getElementById('boardManagerRemoveForm');
                 form.submit();
             }
 		</script>
-		
+
 		<div id="section-wrap">
 			<div id="section">
 
 				<div class="board-form">
 
 					<div class="board-title">
-						<span>게시판 목록</span>
+						<span>게시판관리 정보</span>
 					</div><!-- .board-list-title -->
 
-					<form id="boardWriteForm" method="post">
+					<form id="boardManagerRemoveForm" action="${pageContext.request.contextPath}/board/remove" method="post">
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						<input type="text" name="title" id="title" />
+						<input type="hidden" name="board_seq" value="${boardManager.board_seq}" />
+						${boardManager.board_id}
 						<hr />
-						<textarea name="content" id="content"></textarea>
+						${boardManager.board_name}
 					</form>
 
-					<a href="#" onclick="f_write(); return false;">글쓰기</a>
+					<a href="${pageContext.request.contextPath}/board/manager/change/${boardManager.board_seq}">변경</a>
+					<a href="#" onclick="f_delete(); return false;">제거</a>
 					<a href="#" onclick="history.back(); return false;">취소</a>
 
 				</div>

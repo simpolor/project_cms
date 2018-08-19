@@ -29,14 +29,14 @@
 
 					<form id="boardDeleteForm" action="${pageContext.request.contextPath}/board/delete" method="post">
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						<input type="seq" name="seq" value="${board.seq}" />
+						<input type="hidden" name="seq" value="${board.seq}" />
 						${board.title}
 						<hr />
 						${board.content}
 					</form>
 
-					<a href="${pageContext.request.contextPath}/board/modify/${board.seq}">수정</a>
-					<a href="#" onclick="f_delete(); return false;">삭제</a>
+					<a href="${pageContext.request.contextPath}/board/modify/${board.seq}">글수정</a>
+					<a href="#" onclick="f_delete(); return false;">글삭제</a>
 					<a href="#" onclick="history.back(); return false;">취소</a>
 
 				</div>
