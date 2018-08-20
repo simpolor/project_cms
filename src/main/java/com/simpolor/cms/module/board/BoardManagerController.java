@@ -5,8 +5,10 @@ import com.simpolor.cms.component.PaginationBuilder;
 import com.simpolor.cms.component.PaginationUtil;
 import com.simpolor.cms.module.board.model.Board;
 import com.simpolor.cms.module.board.model.BoardManager;
+import com.simpolor.cms.module.board.model.BoardStructure;
 import com.simpolor.cms.module.board.service.BoardManagerService;
 import com.simpolor.cms.module.board.service.BoardService;
+import com.simpolor.cms.module.board.service.BoardStructureService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class BoardManagerController {
 
     @Autowired
     private BoardManagerService boardManagerService;
+
+    @Autowired
+    private BoardStructureService boardStructureService;
 
     @GetMapping("/board/manager/list/{page}")
     public ModelAndView boardManagerList(ModelAndView mav, @PathVariable int page ){
@@ -178,6 +183,23 @@ public class BoardManagerController {
         }else{
             mav.setViewName("module/board/boardManagerRemove");
         }
+
+        return mav;
+    }
+
+    @GetMapping("/board/manager/create")
+    public ModelAndView boardManagerCreate(ModelAndView mav, BoardManager boardManager) {
+
+        logger.info("[M] boardManagerCreate");
+
+        int result = boardStructureService.createBoardManager();
+        if(result > 0) {
+            System.out.println(">>>> Success");
+        }else{
+            System.out.println(">>>> Failure");
+        }
+
+        mav.setViewName("redirect:/board/manager/list");
 
         return mav;
     }

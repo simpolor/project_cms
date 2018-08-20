@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simpolor.cms.module.board.dao.BoardStructureDao">
+
+	<select id="createBoardManager">
+		CREATE TABLE `board_3` (
+			`seq` INT(11) NOT NULL AUTO_INCREMENT,
+			`title` VARCHAR(50) NOT NULL,
+			`content` TEXT NOT NULL,
+			`regi_id` VARCHAR(50) NOT NULL,
+			`regi_name` VARCHAR(50) NOT NULL,
+			`regi_date` DATETIME NOT NULL,
+			`modi_id` VARCHAR(50) NULL DEFAULT NULL,
+			`modi_name` VARCHAR(50) NULL DEFAULT NULL,
+			`modi_date` DATETIME NULL DEFAULT NULL,
+			`del_yn` CHAR(1) NULL DEFAULT 'N',
+			PRIMARY KEY (`seq`)
+		);
+	</select>
+
+</mapper>

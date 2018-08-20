@@ -1,6 +1,5 @@
 package com.simpolor.cms.module.board.dao;
 
-import com.simpolor.cms.module.board.model.Board;
 import com.simpolor.cms.module.board.model.BoardManager;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +36,6 @@ public class BoardManagerDao {
     public int deleteBoardManager(BoardManager boardManager){
         return sqlSession.update("deleteBoardManager", boardManager);
     }
+
 
 }

@@ -17,6 +17,7 @@
         <mapper resource="mybatis/mapper/access/access.xml"/>
         <mapper resource="mybatis/mapper/board/board.xml"/>
         <mapper resource="mybatis/mapper/board/boardManager.xml"/>
+        <mapper resource="mybatis/mapper/board/boardStructure.xml"/>
     </mappers>
 
 </configuration>

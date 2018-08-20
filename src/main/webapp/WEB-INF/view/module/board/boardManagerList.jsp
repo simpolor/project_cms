@@ -61,6 +61,7 @@
 
 					<div class="board-list-link">
 						<a href="${pageContext.request.contextPath}/board/manager/register">등록</a>
+						<a href="${pageContext.request.contextPath}/board/manager/create">추가</a>
 						<a href="${pageContext.request.contextPath}/index">뒤로가기</a>
 					</div><!-- .board-list-link -->
 
