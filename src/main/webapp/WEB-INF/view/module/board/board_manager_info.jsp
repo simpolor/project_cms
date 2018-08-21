@@ -35,7 +35,7 @@
 						${boardManager.board_name}
 					</form>
 
-					<a href="${pageContext.request.contextPath}/board/manager/change/${boardManager.board_seq}">변경</a>
+					<a href="${pageContext.request.contextPath}/board/manager/change?board_seq=${boardManager.board_seq}">변경</a>
 					<a href="#" onclick="f_delete(); return false;">제거</a>
 					<a href="#" onclick="history.back(); return false;">취소</a>
 

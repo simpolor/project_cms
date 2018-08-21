@@ -27,16 +27,12 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping("/board/list/{page}")
-    public ModelAndView boardList(ModelAndView mav, @PathVariable int page ){
+    @GetMapping("/board/list")
+    public ModelAndView boardList( ModelAndView mav, @RequestParam(value = "page", defaultValue = "1") int page ){
 
         logger.info("[M] boardList");
 
         Board board = new Board();
-
-        if(page <= 0){
-            page = 1;
-        }
 
         // 전체 갯수 가져오기
         int totalCount = boardService.getBoardTotalCount(board);
@@ -65,13 +61,13 @@ public class BoardController {
         mav.addObject("paging", paging);
         mav.addObject("pagination", pagination);
 
-        mav.setViewName("module/board/boardList");
+        mav.setViewName("module/board/board_list");
 
         return mav;
     }
 
-    @GetMapping("/board/view/{seq}")
-    public ModelAndView boardView(HttpServletRequest request, ModelAndView mav, @PathVariable int seq){
+    @GetMapping("/board/view")
+    public ModelAndView boardView( HttpServletRequest request, ModelAndView mav, @RequestParam(value = "seq") int seq ){
 
         logger.info("[M] boardView");
 
@@ -86,23 +82,23 @@ public class BoardController {
         }
 
         mav.addObject("board", board);
-        mav.setViewName("module/board/boardView");
+        mav.setViewName("module/board/board_view");
 
         return mav;
     }
 
     @GetMapping(value="/board/write")
-    public ModelAndView boardWriteForm(ModelAndView mav, Board board){
+    public ModelAndView boardWriteForm( ModelAndView mav ){
 
         logger.info("[M] boardWriteForm");
 
-        mav.setViewName("module/board/boardWrite");
+        mav.setViewName("module/board/board_write");
 
         return mav;
     }
 
     @PostMapping("/board/write")
-    public ModelAndView boardWrite(ModelAndView mav, Board board){
+    public ModelAndView boardWrite( ModelAndView mav, Board board ){
 
         logger.info("[M] boardAdd");
 
@@ -123,27 +119,27 @@ public class BoardController {
         if(result > 0){
             mav.setViewName("redirect:/board/list");
         }else{
-            mav.setViewName("module/board/boardWrite");
+            mav.setViewName("module/board/board_write");
         }
 
         return mav;
     }
 
-    @GetMapping("/board/modify/{seq}")
-    public ModelAndView boardModifyForm(ModelAndView mav, @PathVariable int seq){
+    @GetMapping("/board/modify")
+    public ModelAndView boardModifyForm( ModelAndView mav, @RequestParam(value = "seq") int seq ){
 
         logger.info("[M] boardModifyFrom");
 
         Board board = boardService.getBoard(seq);
 
         mav.addObject("board", board);
-        mav.setViewName("module/board/boardModify");
+        mav.setViewName("module/board/board_modify");
 
         return mav;
     }
 
     @PostMapping("/board/modify")
-    public ModelAndView boardModify(ModelAndView mav, Board board){
+    public ModelAndView boardModify( ModelAndView mav, Board board ){
 
         logger.info("[M] boardModify");
 
@@ -154,9 +150,9 @@ public class BoardController {
         System.out.println("board.content : "+board.getContent());
         int result = boardService.modifyBoard(board);
         if(result > 0){
-            mav.setViewName("redirect:/board/view/"+board.getSeq());
+            mav.setViewName("redirect:/board/view?seq="+board.getSeq());
         }else{
-            mav.setViewName("module/board/boardEdit");
+            mav.setViewName("module/board/board_modify?seq="+board.getSeq());
         }
 
         return mav;
@@ -173,7 +169,7 @@ public class BoardController {
         if(result > 0){
             mav.setViewName("redirect:/board/list");
         }else{
-            mav.setViewName("module/board/boardView");
+            mav.setViewName("module/board/board_view?seq="+board.getSeq());
         }
 
         return mav;

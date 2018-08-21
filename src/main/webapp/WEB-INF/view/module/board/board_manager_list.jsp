@@ -44,7 +44,7 @@
 									<c:forEach var="list" items="${boardManagerList}">
 										<tr>
 											<td>${list.board_seq}</td>
-											<td><a href="${pageContext.request.contextPath}/board/manager/info/${list.board_seq}">${list.board_name}</a></td>
+											<td><a href="${pageContext.request.contextPath}/board/manager/info?board_seq=${list.board_seq}">${list.board_name}</a></td>
 											<td>${list.regi_date}</td>
 											<td>${list.regi_name}</td>
 										</tr>

@@ -12,8 +12,8 @@
 
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/module/board.css">
 		<script>
-            function f_change() {
-                var form = document.getElementById('boardManagerChangeForm');
+            function f_delete() {
+                var form = document.getElementById('boardDeleteForm');
                 form.submit();
             }
 		</script>
@@ -24,18 +24,19 @@
 				<div class="board-form">
 
 					<div class="board-title">
-						<span>게시판관리 변경</span>
+						<span>게시판 목록</span>
 					</div><!-- .board-list-title -->
 
-					<form id="boardManagerChangeForm" action="${pageContext.request.contextPath}/board/manager/change" method="post">
+					<form id="boardDeleteForm" action="${pageContext.request.contextPath}/board/delete" method="post">
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						<input type="hidden" name="board_seq" id="board_seq" value="${boardManager.board_seq}"/>
-						<input type="text" name="board_id" id="board_id" value="${boardManager.board_id}"/>
+						<input type="hidden" name="seq" value="${board.seq}" />
+						${board.title}
 						<hr />
-						<input type="text" name="board_name" id="board_name" value="${boardManager.board_name}"/>
+						${board.content}
 					</form>
 
-					<a href="#" onclick="f_change(); return false;">변경</a>
+					<a href="${pageContext.request.contextPath}/board/modify?seq=${board.seq}">글수정</a>
+					<a href="#" onclick="f_delete(); return false;">글삭제</a>
 					<a href="#" onclick="history.back(); return false;">취소</a>
 
 				</div>

@@ -5,10 +5,7 @@ import com.simpolor.cms.component.PaginationBuilder;
 import com.simpolor.cms.component.PaginationUtil;
 import com.simpolor.cms.module.board.model.Board;
 import com.simpolor.cms.module.board.model.BoardManager;
-import com.simpolor.cms.module.board.model.BoardStructure;
 import com.simpolor.cms.module.board.service.BoardManagerService;
-import com.simpolor.cms.module.board.service.BoardService;
-import com.simpolor.cms.module.board.service.BoardStructureService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +14,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,19 +28,12 @@ public class BoardManagerController {
     @Autowired
     private BoardManagerService boardManagerService;
 
-    @Autowired
-    private BoardStructureService boardStructureService;
-
-    @GetMapping("/board/manager/list/{page}")
-    public ModelAndView boardManagerList(ModelAndView mav, @PathVariable int page ){
+    @GetMapping("/board/manager/list")
+    public ModelAndView boardManagerList(ModelAndView mav, @RequestParam(value = "page", defaultValue = "1") int page ) {
 
         logger.info("[M] boardManagerList");
 
         BoardManager boardManager = new BoardManager();
-
-        if(page <= 0){
-            page = 1;
-        }
 
         // 전체 갯수 가져오기
         int totalCount = boardManagerService.getBoardManagerTotalCount(boardManager);
@@ -72,13 +63,13 @@ public class BoardManagerController {
         mav.addObject("paging", paging);
         mav.addObject("pagination", pagination);
 
-        mav.setViewName("module/board/boardManagerList");
+        mav.setViewName("module/board/board_manager_list");
 
         return mav;
     }
 
-    @GetMapping("/board/manager/info/{board_seq}")
-    public ModelAndView boardMangerInfo(HttpServletRequest request, ModelAndView mav, @PathVariable int board_seq){
+    @GetMapping("/board/manager/info")
+    public ModelAndView boardMangerInfo(HttpServletRequest request, ModelAndView mav, @RequestParam(value = "board_seq") int board_seq ) {
 
         logger.info("[M] boardManagerInfo");
 
@@ -93,23 +84,23 @@ public class BoardManagerController {
         }
 
         mav.addObject("boardManager", boardManager);
-        mav.setViewName("module/board/boardManagerInfo");
+        mav.setViewName("module/board/board_manager_info");
 
         return mav;
     }
 
     @GetMapping(value="/board/manager/register")
-    public ModelAndView boardManagerRegisterForm(ModelAndView mav, Board board){
+    public ModelAndView boardManagerRegisterForm(ModelAndView mav) {
 
         logger.info("[M] boardManagerRegisterForm");
 
-        mav.setViewName("module/board/boardManagerRegister");
+        mav.setViewName("module/board/board_manager_register");
 
         return mav;
     }
 
     @PostMapping("/board/manager/register")
-    public ModelAndView boardManagerRegister(ModelAndView mav, BoardManager boardManager){
+    public ModelAndView boardManagerRegister(ModelAndView mav, BoardManager boardManager) {
 
         logger.info("[M] boardManagerRegister");
 
@@ -127,31 +118,30 @@ public class BoardManagerController {
         }*/
 
         int result = boardManagerService.registerBoardManager(boardManager);
-        System.out.println("sssss : "+boardManager.getBoard_seq());
         if(result > 0){
-            mav.setViewName("redirect:/board/manager/list/1");
+            mav.setViewName("redirect:/board/manager/list");
         }else{
-            mav.setViewName("module/board/boardManagerRegister");
+            mav.setViewName("module/board/board_manager_register");
         }
 
         return mav;
     }
 
-    @GetMapping("/board/manager/change/{board_seq}")
-    public ModelAndView boardManagerChangeForm(ModelAndView mav, @PathVariable int board_seq){
+    @GetMapping("/board/manager/change")
+    public ModelAndView boardManagerChangeForm( ModelAndView mav, @RequestParam(value = "board_seq") int board_seq ) {
 
         logger.info("[M] boardManagerChangeFrom");
 
         BoardManager boardManager = boardManagerService.getBoardManager(board_seq);
 
         mav.addObject("boardManager", boardManager);
-        mav.setViewName("module/board/boardManagerChange");
+        mav.setViewName("module/board/board_manager_change");
 
         return mav;
     }
 
     @PostMapping("/board/manager/change")
-    public ModelAndView boardManagerChange(ModelAndView mav, BoardManager boardManager){
+    public ModelAndView boardManagerChange( ModelAndView mav, BoardManager boardManager ){
 
         logger.info("[M] boardManager Change");
 
@@ -162,16 +152,16 @@ public class BoardManagerController {
         System.out.println("boardManager.name: "+boardManager.getBoard_name());
         int result = boardManagerService.changeBoardManager(boardManager);
         if(result > 0){
-            mav.setViewName("redirect:/board/manager/info/"+boardManager.getBoard_seq());
+            mav.setViewName("redirect:/board/manager/info?board_seq="+boardManager.getBoard_seq());
         }else{
-            mav.setViewName("module/board/boardManagerChange");
+            mav.setViewName("module/board/board_manager_change");
         }
 
         return mav;
     }
 
     @PostMapping("/board/manager/remove")
-    public ModelAndView boardManagerRemove(ModelAndView mav, BoardManager boardManager){
+    public ModelAndView boardManagerRemove( ModelAndView mav, BoardManager boardManager ){
 
         logger.info("[M] boardManagerRemove");
 
@@ -181,28 +171,12 @@ public class BoardManagerController {
         if(result > 0){
             mav.setViewName("redirect:/board/manager/list");
         }else{
-            mav.setViewName("module/board/boardManagerRemove");
+            mav.setViewName("redirect:/board/manager/info?board_seq="+boardManager.getBoard_seq());
         }
 
         return mav;
     }
 
-    @GetMapping("/board/manager/create")
-    public ModelAndView boardManagerCreate(ModelAndView mav, BoardManager boardManager) {
-
-        logger.info("[M] boardManagerCreate");
-
-        int result = boardStructureService.createBoardManager();
-        if(result > 0) {
-            System.out.println(">>>> Success");
-        }else{
-            System.out.println(">>>> Failure");
-        }
-
-        mav.setViewName("redirect:/board/manager/list");
-
-        return mav;
-    }
 }
 
 
