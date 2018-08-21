@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BoardManagerController {
@@ -192,7 +194,8 @@ public class BoardManagerController {
 
         logger.info("[M] boardManagerCreate");
 
-        int result = boardStructureService.createBoardManager();
+        Map<String, String> map = new HashMap<>();
+        int result = boardStructureService.createBoardManager(map);
         if(result > 0) {
             System.out.println(">>>> Success");
         }else{
