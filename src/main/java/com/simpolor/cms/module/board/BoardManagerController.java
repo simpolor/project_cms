@@ -20,7 +20,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BoardManagerController {
@@ -192,14 +195,31 @@ public class BoardManagerController {
 
         logger.info("[M] boardManagerCreate");
 
-        int result = boardStructureService.createBoardManager();
+        StringBuffer create_table = new StringBuffer();
+        create_table.append("CREATE TABLE board_11 ( ");
+        create_table.append("seq INT(11) NOT NULL AUTO_INCREMENT, ");
+        create_table.append("title VARCHAR(50) NOT NULL, ");
+        create_table.append("content TEXT NOT NULL, ");
+        create_table.append("regi_id VARCHAR(50) NOT NULL, ");
+        create_table.append("regi_name VARCHAR(50) NOT NULL, ");
+        create_table.append("regi_date DATETIME NOT NULL, ");
+        create_table.append("modi_id VARCHAR(50) NULL DEFAULT NULL, ");
+        create_table.append("modi_name VARCHAR(50) NULL DEFAULT NULL, ");
+        create_table.append("del_yn CHAR(1) NULL DEFAULT 'N', ");
+        create_table.append("PRIMARY KEY (seq) ");
+        create_table.append("); ");
+
+        Map<String, String> map = new HashMap<>();
+        map.put("create_table", create_table.toString());
+
+        int result = boardStructureService.createBoardManager(map);
         if(result > 0) {
             System.out.println(">>>> Success");
         }else{
             System.out.println(">>>> Failure");
         }
 
-        mav.setViewName("redirect:/board/manager/list");
+        mav.setViewName("redirect:/board/manager/list/1");
 
         return mav;
     }

@@ -3,7 +3,7 @@
 
 <mapper namespace="com.simpolor.cms.module.board.dao.BoardStructureDao">
 
-	<select id="createBoardManager">
+	<!-- <update id="createBoardManager" parameterType="java.lang.String" >
 		CREATE TABLE `board_3` (
 			`seq` INT(11) NOT NULL AUTO_INCREMENT,
 			`title` VARCHAR(50) NOT NULL,
@@ -17,6 +17,12 @@
 			`del_yn` CHAR(1) NULL DEFAULT 'N',
 			PRIMARY KEY (`seq`)
 		);
-	</select>
+	</update> -->
+
+	<update id="createBoardManager" parameterType="map" >
+		<![CDATA[
+			${create_table}
+		]]>
+	</update>
 
 </mapper>
