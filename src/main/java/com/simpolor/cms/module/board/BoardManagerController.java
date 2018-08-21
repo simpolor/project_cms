@@ -209,6 +209,14 @@ public class BoardManagerController {
         create_table.append("PRIMARY KEY (seq) ");
         create_table.append("); ");
 
+        /*
+        // 테이블 확인
+        SELECT EXISTS (
+          SELECT 1 FROM Information_schema.tables
+          WHERE table_schema = 'security_db'
+          AND table_name = 'board_3'
+        ) AS flag
+         */
         Map<String, String> map = new HashMap<>();
         map.put("create_table", create_table.toString());
 
